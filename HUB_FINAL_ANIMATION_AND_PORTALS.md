@@ -26,18 +26,19 @@ Preserve every visible title exactly and keep all lettering readable in every fr
 
 The Moon Room title words must remain warm cream/gold like the other destination titles. The Moon Room's blue/cyan celestial rune ring must remain blue/cyan and must not rotate, warp, or change shape.
 
-Add only restrained environmental life:
-- lantern and candle flames gently flicker
-- tiny warm light shimmer on nearby wood and glass
-- waterfall and stream flow softly in place
-- very slight movement in hanging wisteria, ivy, leaves, and market fabric as if from a faint breeze
-- a few fireflies/magical motes drift slowly
-- crystals give occasional subtle glints, not pulsing neon
-- stars in the Moon Room twinkle very lightly
-- animals remain in their exact locations and may only make tiny natural motions such as blinking, breathing, a small ear twitch, or a gentle tail flick
-- no animal walks away, changes species, multiplies, disappears, or changes position
+Add clearly visible environmental life while keeping the composition fixed:
+- waterfall and stream should visibly flow continuously, with small ripples and sparkling reflections
+- lantern and candle flames should flicker noticeably, casting soft changing warm light on nearby wood, glass, and leaves
+- wisteria, ivy, leaves, hanging herbs, and market fabric may sway gently in a light breeze
+- several fireflies / magical motes may drift naturally through the scene at different depths
+- crystals may shimmer and catch light with occasional jewel-like glints
+- stars in the Moon Room may twinkle clearly; the moonlight may breathe very slightly brighter/dimmer without moving the moon or ring
+- animals must stay in their exact locations, but may show small natural life: blinking, breathing, ear twitches, tail swishes, tiny head turns, looking around, or a small paw/wing adjustment
+- market hanging decorations may gently sway
+- reflections in the water may move with the current
+- keep all movement slow, graceful, and loopable; nothing should feel frozen, but nothing should become chaotic
 
-The overall feeling should be alive, magical, cozy, calm, and inhabited — not busy.
+The overall feeling should be visibly alive, magical, cozy, calm, and inhabited — like a living enchanted tree at night.
 
 ABSOLUTELY DO NOT:
 - alter, rewrite, morph, misspell, blur, or animate the sign text
@@ -55,7 +56,7 @@ ABSOLUTELY DO NOT:
 Make the first and last frames visually near-identical so the clip can loop cleanly.
 
 Preferred duration: 6–8 seconds.
-Preferred motion level: subtle / restrained.
+Preferred motion level: moderate environmental motion with a locked camera and fixed architecture.
 Audio: none.
 Output: preserve the original portrait framing; do not crop the artwork.
 
