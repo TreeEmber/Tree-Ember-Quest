@@ -3459,9 +3459,13 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
    Coordinates are percentage-based so the portals stay aligned
    while the portrait artwork scales responsively.
    ========================================================== */
-.hub .hub-frame{max-width:704px}
-.hub-approved-art{display:block;width:100%;height:auto}
-.hub .hub-hit{pointer-events:auto;touch-action:manipulation;cursor:pointer}
+.hub .hub-frame{position:relative;max-width:704px}
+.hub-approved-art{display:block;width:100%;height:auto;position:relative;z-index:1}
+.hub-final-video{position:absolute;inset:0;z-index:2;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;background:transparent}
+.hub .hub-hit{pointer-events:auto;touch-action:manipulation;cursor:pointer;z-index:6}
+@media(prefers-reduced-motion:reduce){
+  .hub-final-video{display:none!important}
+}
 
 /* Six main-Hub portals only. Keep the central stairs/waterfall as breathing space. */
 .hub .h-nook{left:7%;top:2%;width:36%;height:23%;border-radius:24%}
@@ -3523,28 +3527,10 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
 
 <section class="route hub">
 <div class="hub-frame">
-<img class="hub-approved-art" src="assets/portal-hub-approved.jpg" alt="Tree & Ember Portal Hub with Wrenwood Nook, The Moon Room, Living Library, Briarbridge Market, Tree and Ember Homeschool Owl’s Lessons, and Ember’s Photography">
-
-
-<div class="hub-name-aura-layer" aria-hidden="true">
-  <span class="hub-name-aura aura-moon"></span>
-  <span class="hub-name-aura aura-library"></span>
-  <span class="hub-name-aura aura-nook"></span>
-  <span class="hub-name-aura aura-market"></span>
-  <span class="hub-name-aura aura-school"></span>
-  <span class="hub-name-aura aura-photo"></span>
-</div>
-
-<div class="hub-live" aria-hidden="true">
-  <span class="hub-scene-glow g-moon"></span>
-  <span class="hub-scene-glow g-library"></span>
-  <span class="hub-scene-glow g-market"></span>
-  <span class="hub-scene-glow g-photo"></span>
-  <span class="hub-glow hg1"></span>
-  <span class="hub-glow hg2"></span>
-  <span class="hub-mote hm1"></span><span class="hub-mote hm2"></span><span class="hub-mote hm3"></span>
-  <span class="hub-mote hm4"></span><span class="hub-mote hm5"></span><span class="hub-mote hm6"></span>
-</div>
+<img class="hub-approved-art" src="assets/portal-hub-final.jpg" alt="Tree & Ember Portal Hub with Wrenwood Nook, The Moon Room, Living Library, Briarbridge Market, Tree and Ember Homeschool Owl’s Lessons, and Ember’s Photography">
+<video id="teHubVideo" class="hub-final-video" autoplay muted loop playsinline preload="auto" poster="assets/portal-hub-final.jpg" aria-hidden="true">
+  <source src="assets/portal-hub-final-fairy.mp4" type="video/mp4">
+</video>
 
 <label class="hub-hit h-nook" for="r-nook" role="button" tabindex="0" aria-label="Open Wrenwood Nook"></label>
 <label class="hub-hit h-moon" for="r-moon" role="button" tabindex="0" aria-label="Open The Moon Room"></label>
@@ -4403,5 +4389,29 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
 })();
 </script>
 
+
+<script>
+(function(){
+  const hubVideo=document.getElementById('teHubVideo');
+  const hubRoute=document.getElementById('r-hub');
+  const reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!hubVideo)return;
+
+  function syncHubVideo(){
+    if(reduced || !hubRoute || !hubRoute.checked || document.hidden){
+      try{hubVideo.pause()}catch(e){}
+      return;
+    }
+    try{
+      const p=hubVideo.play();
+      if(p&&p.catch)p.catch(()=>{});
+    }catch(e){}
+  }
+
+  document.querySelectorAll('input.state[name="r"]').forEach(r=>r.addEventListener('change',syncHubVideo));
+  document.addEventListener('visibilitychange',syncHubVideo);
+  syncHubVideo();
+})();
+</script>
 </body>
 </html>
