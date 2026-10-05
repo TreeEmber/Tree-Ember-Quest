@@ -3454,20 +3454,25 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
 
 
 /* ==========================================================
-   APPROVED PORTAL HUB COMPOSITION — 2026-10-04
-   Hotspots align to portal-hub-approved.jpg
+   FINAL PORTAL HUB HOTSPOTS — 2026-10-05
+   Align to the founder-approved six-destination Hub still.
+   Coordinates are percentage-based so the portals stay aligned
+   while the portrait artwork scales responsively.
    ========================================================== */
 .hub .hub-frame{max-width:704px}
 .hub-approved-art{display:block;width:100%;height:auto}
-.hub .h-moon{left:31%;top:2%;width:39%;height:24%;border-radius:48%}
-.hub .h-nook{left:3%;top:5%;width:33%;height:19%}
-.hub .h-beasts{left:68%;top:12%;width:31%;height:26%}
-.hub .h-library{left:0%;top:25%;width:37%;height:25%}
-.hub .h-market{left:33%;top:30%;width:37%;height:25%}
-.hub .h-homeschool{left:0%;top:52%;width:45%;height:25%}
-.hub .h-music{left:65%;top:42%;width:35%;height:25%}
-.hub .h-photo{left:55%;top:73%;width:45%;height:26%}
-.hub .h-return{left:37%;top:72%;width:22%;height:24%;border-radius:999px}
+.hub .hub-hit{pointer-events:auto;touch-action:manipulation;cursor:pointer}
+
+/* Six main-Hub portals only. Keep the central stairs/waterfall as breathing space. */
+.hub .h-nook{left:2%;top:1%;width:44%;height:23%;border-radius:26%}
+.hub .h-moon{left:50%;top:1%;width:49%;height:25%;border-radius:32%}
+.hub .h-library{left:0%;top:27%;width:58%;height:31%;border-radius:18%}
+.hub .h-market{left:61%;top:28%;width:39%;height:29%;border-radius:18%}
+.hub .h-homeschool{left:0%;top:55%;width:50%;height:27%;border-radius:18%}
+.hub .h-photo{left:61%;top:72%;width:39%;height:27%;border-radius:18%}
+
+/* Optional hidden return zone stays on the lower center path, away from destinations. */
+.hub .h-return{left:46%;top:83%;width:13%;height:15%;border-radius:999px}
 .hub-hit:focus-visible{
   outline:3px solid rgba(255,234,177,.95)!important;
   outline-offset:-3px!important;
@@ -3521,7 +3526,7 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
 
 <section class="route hub">
 <div class="hub-frame">
-<img class="hub-approved-art" src="assets/portal-hub-approved.jpg" alt="Tree & Ember Portal Hub with Moon Room, Wrenwood Nook, Living Library, Mythical Beasts and Legends, Briarbridge Market, Tree & Ember Homeschool Owl’s Lessons, Heartwood Lounge and Music Studio, and Ember’s Photography">
+<img class="hub-approved-art" src="assets/portal-hub-approved.jpg" alt="Tree & Ember Portal Hub with Wrenwood Nook, The Moon Room, Living Library, Briarbridge Market, Tree and Ember Homeschool Owl’s Lessons, and Ember’s Photography">
 
 
 <div class="hub-name-aura-layer" aria-hidden="true">
@@ -3530,7 +3535,6 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
   <span class="hub-name-aura aura-nook"></span>
   <span class="hub-name-aura aura-market"></span>
   <span class="hub-name-aura aura-school"></span>
-  <span class="hub-name-aura aura-music"></span>
   <span class="hub-name-aura aura-photo"></span>
 </div>
 
@@ -3538,7 +3542,6 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
   <span class="hub-scene-glow g-moon"></span>
   <span class="hub-scene-glow g-library"></span>
   <span class="hub-scene-glow g-market"></span>
-  <span class="hub-scene-glow g-music"></span>
   <span class="hub-scene-glow g-photo"></span>
   <span class="hub-glow hg1"></span>
   <span class="hub-glow hg2"></span>
@@ -3546,14 +3549,12 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
   <span class="hub-mote hm4"></span><span class="hub-mote hm5"></span><span class="hub-mote hm6"></span>
 </div>
 
-<label class="hub-hit h-moon" for="r-moon" role="button" tabindex="0" aria-label="The Moon Room"></label>
-<label class="hub-hit h-nook" for="r-nook" role="button" tabindex="0" aria-label="Wrenwood Nook"></label>
-<label class="hub-hit h-beasts" for="r-beasts" role="button" tabindex="0" aria-label="Mythical Beasts and Legends"></label>
-<label class="hub-hit h-library" for="r-library" role="button" tabindex="0" aria-label="Living Library"></label>
-<label class="hub-hit h-market" for="r-market" role="button" tabindex="0" aria-label="Briarbridge Market"></label>
-<label class="hub-hit h-homeschool" for="r-homeschool" role="button" tabindex="0" aria-label="Tree and Ember Homeschool — Owl’s Lessons"></label>
-<label class="hub-hit h-music" for="r-music" role="button" tabindex="0" aria-label="Heartwood Lounge and Music Studio"></label>
-<label class="hub-hit h-photo" for="r-photo" role="button" tabindex="0" aria-label="Ember’s Photography"></label>
+<label class="hub-hit h-nook" for="r-nook" role="button" tabindex="0" aria-label="Open Wrenwood Nook"></label>
+<label class="hub-hit h-moon" for="r-moon" role="button" tabindex="0" aria-label="Open The Moon Room"></label>
+<label class="hub-hit h-library" for="r-library" role="button" tabindex="0" aria-label="Open Living Library"></label>
+<label class="hub-hit h-market" for="r-market" role="button" tabindex="0" aria-label="Open Briarbridge Market"></label>
+<label class="hub-hit h-homeschool" for="r-homeschool" role="button" tabindex="0" aria-label="Open Tree and Ember Homeschool — Owl’s Lessons"></label>
+<label class="hub-hit h-photo" for="r-photo" role="button" tabindex="0" aria-label="Open Ember’s Photography"></label>
 <label class="hub-hit h-return" for="r-gate" role="button" tabindex="0" aria-label="Return to Briarlight Gate"></label>
 </div>
 </section>
