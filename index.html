@@ -3462,9 +3462,6 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
 <input class="state" type="radio" name="r" id="r-moon">
 <input class="state" type="radio" name="r" id="r-nook">
 <input class="state" type="radio" name="r" id="r-market">
-<input class="state" type="radio" name="r" id="r-school">
-<input class="state" type="radio" name="r" id="r-parent">
-<input class="state" type="radio" name="r" id="r-student">
 <input class="state" type="radio" name="r" id="r-music">
 <input class="state" type="radio" name="r" id="r-photo">
 
@@ -3530,9 +3527,8 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
 <label class="hub-hit h-library" for="r-library" role="button" tabindex="0" aria-label="Living Library"></label>
 <label class="hub-hit h-nook" for="r-nook" role="button" tabindex="0" aria-label="Wrenwood Nook"></label>
 <label class="hub-hit h-market" for="r-market" role="button" tabindex="0" aria-label="Briarbridge Market"></label>
-<label class="hub-hit h-school" for="r-school" role="button" tabindex="0" aria-label="T and E School"></label>
-<label class="hub-hit h-music" for="r-music" role="button" tabindex="0" aria-label="Music Studio and School"></label>
-<label class="hub-hit h-photo" for="r-photo" role="button" tabindex="0" aria-label="Cheshire Memories Photography"></label>
+<label class="hub-hit h-music" for="r-music" role="button" tabindex="0" aria-label="Music Studio"></label>
+<label class="hub-hit h-photo" for="r-photo" role="button" tabindex="0" aria-label="Photography"></label>
 <label class="hub-hit h-return" for="r-gate" role="button" tabindex="0" aria-label="Return to Briarlight Gate"></label>
 </div>
 </section>
@@ -4089,11 +4085,8 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
 </section>
 
 
-<section class="route school"><div class="inner"><label class="back" for="r-hub">← Hub</label><div class="card"><h1>T&amp;E School — Operation Level Up</h1><p>Public school landing page.</p><div class="logins"><label class="login" for="r-parent">Parent / Guardian Login</label><label class="login" for="r-student">Student Login</label></div></div></div></section>
-<section class="route parent"><div class="inner"><label class="back" for="r-school">← School</label><div class="card"><h1>Parent / Guardian</h1><p>Private parent-area prototype.</p></div></div></section>
-<section class="route student"><div class="inner"><label class="back" for="r-school">← School</label><div class="card"><h1>Student</h1><p>Private student-area prototype.</p></div></div></section>
-<section class="route branch music"><div class="inner"><label class="back" for="r-hub">← Hub</label><div class="card"><h1>Music Studio &amp; School</h1><p>Music learning and creative exploration.</p></div></div></section>
-<section class="route branch photo"><div class="inner"><label class="back" for="r-hub">← Hub</label><div class="card"><h1>Cheshire Memories Photography</h1><p>Photography and memory-keeping.</p></div></div></section>
+<section class="route branch music"><div class="inner"><label class="back" for="r-hub">← Hub</label><div class="card"><h1>Music Studio</h1><p>Music, sound, creativity, and future learning experiences.</p></div></div></section>
+<section class="route branch photo"><div class="inner"><label class="back" for="r-hub">← Hub</label><div class="card"><h1>Photography</h1><p>Tree &amp; Ember photography, field observations, galleries, and visual stories.</p></div></div></section>
 
 <iframe id="wrenwood-submit-frame" name="wrenwood-submit-frame"
         title="Wrenwood Nook secure submission response" aria-hidden="true"></iframe>
@@ -4344,6 +4337,46 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
   });
   setPage2Speed();
   syncEntranceMedia();
+})();
+</script>
+
+
+<script>
+(function(){
+  const routeHash = {
+    'r-gate':'#briarlight-gate',
+    'r-walk':'#forest-journey',
+    'r-hub':'#portal-hub',
+    'r-library':'#living-library',
+    'r-moon':'#moon-room',
+    'r-nook':'#wrenwood-nook',
+    'r-market':'#briarbridge-market',
+    'r-music':'#music-studio',
+    'r-photo':'#photography'
+  };
+  const hashRoute = Object.fromEntries(Object.entries(routeHash).map(([id,hash])=>[hash,id]));
+
+  function openHash(){
+    const id=hashRoute[window.location.hash];
+    const input=id&&document.getElementById(id);
+    if(input && !input.checked){
+      input.checked=true;
+      input.dispatchEvent(new Event('change',{bubbles:true}));
+    }
+  }
+
+  document.querySelectorAll('input.state[name="r"]').forEach(input=>{
+    input.addEventListener('change',()=>{
+      if(!input.checked)return;
+      const hash=routeHash[input.id];
+      if(hash && window.location.hash!==hash){
+        history.replaceState(null,'',hash);
+      }
+    });
+  });
+
+  window.addEventListener('hashchange',openHash);
+  openHash();
 })();
 </script>
 
