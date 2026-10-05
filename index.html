@@ -3474,7 +3474,7 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
 
 
 <section class="route gate gate-video-current">
-  <video id="tePage1Video" class="gate-current-video" autoplay muted playsinline preload="auto" loop>
+  <video id="tePage1Video" class="gate-current-video" autoplay muted playsinline preload="auto">
     <source src="assets/page1-briarlight-gate.mp4" type="video/mp4">
   </video>
   <label class="gate-current-enter" for="r-walk" role="button" tabindex="0" aria-label="Enter Briarlight Gate"></label>
@@ -4287,6 +4287,18 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
       if(promise && promise.catch)promise.catch(()=>{});
     }catch(e){}
   }
+  function goTo(id){
+    const target=document.getElementById(id);
+    if(!target)return;
+    target.checked=true;
+    target.dispatchEvent(new Event('change',{bubbles:true}));
+  }
+
+  function setPage2Speed(){
+    if(!p2)return;
+    try{p2.playbackRate=1.5}catch(e){}
+  }
+
   function syncEntranceMedia(){
     if(p1){
       if(gate && gate.checked){
@@ -4299,12 +4311,30 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
     if(p2){
       if(walk && walk.checked){
         p2.currentTime=0;
+        setPage2Speed();
         safePlay(p2);
       }else{
         try{p2.pause()}catch(e){}
       }
     }
   }
+
+  if(p1){
+    p1.addEventListener('ended',()=>{
+      if(gate && gate.checked) goTo('r-walk');
+    });
+  }
+
+  if(p2){
+    p2.addEventListener('loadedmetadata',setPage2Speed);
+    p2.addEventListener('ratechange',()=>{
+      if(Math.abs(p2.playbackRate-1.5)>.01) setPage2Speed();
+    });
+    p2.addEventListener('ended',()=>{
+      if(walk && walk.checked) goTo('r-hub');
+    });
+  }
+
   radios.forEach(r=>r.addEventListener('change',syncEntranceMedia));
   document.addEventListener('visibilitychange',()=>{
     if(document.hidden){
@@ -4312,6 +4342,7 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
       try{p2&&p2.pause()}catch(e){}
     }else syncEntranceMedia();
   });
+  setPage2Speed();
   syncEntranceMedia();
 })();
 </script>
