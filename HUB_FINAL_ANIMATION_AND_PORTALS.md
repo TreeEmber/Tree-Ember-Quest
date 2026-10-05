@@ -1,68 +1,60 @@
 # Tree & Ember Portal Hub — Final Animation + Portal Handoff
 
-Status: FINAL ART APPROVED — October 5, 2026
+Status: **FINAL ART + FINAL ANIMATION APPROVED — October 5, 2026**
 
-Canonical still:
+## Canonical Hub media
+
+Final approved source still:
 - Drive: `Portal Hub — FINAL APPROVED ART — 2026-10-05.png`
 - Drive file ID: `1XjGKmznKKsfpdomsK_PQGGijguXL--CQ`
 - Native size: 1024 × 1536 (2:3 portrait)
 - Do not substitute an older Hub still.
 
-## Gemini image-to-video prompt
+Final web still:
+- Drive: `Portal Hub — FINAL WEB — 2026-10-05.jpg`
+- Drive file ID: `1lLV6UpZvfvwrnNkr6ELBTY-hKW9t43Ft`
+- GitHub: `assets/portal-hub-final.jpg`
+- 704 × 1056 (2:3 portrait)
 
-Use the supplied final Tree & Ember Portal Hub still as the exact first-frame/reference image.
+Final approved animation:
+- Drive: `Portal Hub — FINAL FAIRY ANIMATION — 2026-10-05.mp4`
+- Drive file ID: `1-n3E6RQydbE--v-MwhW7UpYi59cvR5rX`
+- GitHub: `assets/portal-hub-final-fairy.mp4`
+- 768 × 1152 (2:3 portrait)
+- H.264 MP4, 10 seconds, no audio
 
-ANIMATE THIS IMAGE ONLY. DO NOT REDESIGN OR RECOMPOSE IT.
+## FINAL animation direction — locked
 
-Keep the camera completely locked. No zoom, pan, tilt, dolly, parallax, reframing, crop, perspective shift, or camera shake. Preserve the exact 2:3 portrait composition, every room position, every staircase, bridge, root, waterfall, sign, animal, object, and clickable landmark.
+The older Gemini prompt is superseded by the approved finished animation.
 
-Preserve every visible title exactly and keep all lettering readable in every frame:
-- Wrenwood Nook
-- The Moon Room
-- Living Library
-- Briarbridge Market
-- Tree and Ember Homeschool: Owl's Lessons
-- Ember's Photography
+Keep this visual direction if the Hub animation is ever revised:
+- Camera, architecture, rooms, signs, animals' base positions, and clickable landmarks stay fixed.
+- Water and reflections visibly move.
+- Lantern/candle light flickers naturally.
+- Foliage/fabric, mist, crystal glints, stars, and small environmental details may move gently.
+- Fairy magic should **encompass the portal names** for:
+  - Wrenwood Nook
+  - Living Library
+  - Briarbridge Market
+  - Tree and Ember Homeschool: Owl's Lessons
+  - Ember's Photography
+- Avoid comet-style streaks and excessive floating glowing balls.
 
-The Moon Room title words must remain warm cream/gold like the other destination titles. The Moon Room's blue/cyan celestial rune ring must remain blue/cyan and must not rotate, warp, or change shape.
+### Moon Room lock
 
-Add clearly visible environmental life while keeping the composition fixed:
-- waterfall and stream should visibly flow continuously, with small ripples and sparkling reflections
-- lantern and candle flames should flicker noticeably, casting soft changing warm light on nearby wood, glass, and leaves
-- wisteria, ivy, leaves, hanging herbs, and market fabric may sway gently in a light breeze
-- several fireflies / magical motes may drift naturally through the scene at different depths
-- crystals may shimmer and catch light with occasional jewel-like glints
-- stars in the Moon Room may twinkle clearly; the moonlight may breathe very slightly brighter/dimmer without moving the moon or ring
-- animals must stay in their exact locations, but may show small natural life: blinking, breathing, ear twitches, tail swishes, tiny head turns, looking around, or a small paw/wing adjustment
-- market hanging decorations may gently sway
-- reflections in the water may move with the current
-- keep all movement slow, graceful, and loopable; nothing should feel frozen, but nothing should become chaotic
+**DO NOT CHANGE THE MOON ROOM.**
 
-The overall feeling should be visibly alive, magical, cozy, calm, and inhabited — like a living enchanted tree at night.
-
-ABSOLUTELY DO NOT:
-- alter, rewrite, morph, misspell, blur, or animate the sign text
-- add or remove rooms, signs, animals, furniture, plants, paths, bridges, stairs, crystals, or props
-- change the color palette or lighting design
-- move the destination signs
-- rotate or animate the Moon Room rune ring
-- create new people or characters
-- transform objects between frames
-- make the tree breathe, bend, swell, or morph
-- introduce large particle effects
-- create rapid movement
-- use cinematic camera motion
-
-Make the first and last frames visually near-identical so the clip can loop cleanly.
-
-Preferred duration: 6–8 seconds.
-Preferred motion level: moderate environmental motion with a locked camera and fixed architecture.
-Audio: none.
-Output: preserve the original portrait framing; do not crop the artwork.
+Do not alter its:
+- title words
+- blue/cyan celestial ring
+- moon effect
+- color treatment
+- motion treatment
+- room composition
 
 ## Main Hub click destinations
 
-The main Hub contains SIX clickable portals only:
+The main Hub contains **SIX clickable portals only**:
 
 1. Wrenwood Nook → `r-nook`
 2. The Moon Room → `r-moon`
@@ -71,50 +63,62 @@ The main Hub contains SIX clickable portals only:
 5. Tree and Ember Homeschool: Owl's Lessons → `r-homeschool`
 6. Ember's Photography → `r-photo`
 
-These are NOT separate main-Hub portals:
+These are **not** separate main-Hub portals:
 - Mythical Beasts & Legends
 - The Copper Kettle
 - Heartwood Lounge & Music Studio
 
-Those live inside Living Library after the Living Library click.
+Those belong inside Living Library after the Living Library click.
 
-## Final responsive hotspot geometry
+## FINAL responsive hotspot geometry — actual code values
 
-Percentages are relative to the final 1024 × 1536 still/video so alignment survives responsive scaling.
+Percentages are relative to the 2:3 still/video. These are the QA-adjusted values currently in `index.html`.
 
 - Wrenwood Nook: left 7%, top 2%, width 36%, height 23%
 - The Moon Room: left 54%, top 2%, width 44%, height 23%
-- Living Library: left 0%, top 27.5%, width 56%, height 30%
-- Briarbridge Market: left 63%, top 27%, width 36%, height 28%
+- Living Library: left 0%, top 27.5%, width 56%, height **26.5%**
+- Briarbridge Market: left 63%, top 27%, width 36%, height **27%**
 - Homeschool / Owl's Lessons: left 0%, top 54.5%, width 47%, height 25%
 - Ember's Photography: left 64%, top 71%, width 35%, height 27%
 
-Keep the central stairway, bridge, waterfall, and open scenic areas non-clickable.
+The slightly shorter Library/Market zones prevent overlap with the lower destinations.
+
+Keep the central stairway, bridge, waterfall, and scenic breathing areas non-clickable.
 
 ## Web integration rules
 
-- The animation is decorative media under the HTML hotspot layer; the video itself must not capture pointer/touch events.
-- Keep the exact hotspot percentages above for both the final still and final animation.
-- Use the final still as the video poster/fallback.
-- Respect `prefers-reduced-motion`: reduced-motion users should see the accepted final still instead of autoplay animation.
-- Video should be `muted autoplay loop playsinline`.
-- Never bake click behavior into the video itself.
-- Do not move hotspot geometry to follow Gemini drift. If Gemini changes the composition, reject that animation and regenerate it.
-- Before merge, test all six portals on phone portrait, phone landscape, tablet, and desktop.
-- Confirm sign text remains readable at mobile width.
+- Animation is decorative media under the HTML hotspot layer.
+- Video must use `pointer-events:none`; all clicks/touches belong to the HTML hotspot layer.
+- Still and video must remain the same 2:3 composition.
+- Final still is the poster/fallback.
+- `prefers-reduced-motion` hides/pauses the Hub video and leaves the approved still.
+- Video is `muted autoplay loop playsinline`.
+- Hub video pauses when the Hub route is inactive or the document is hidden.
+- Keyboard users can activate each Hub portal with Enter or Space.
+- Do not move hotspots to compensate for animation drift; reject any future animation that changes composition.
+
+## QA — October 5, 2026
+
+Verified on staging:
+- Exactly six `.hub-hit` elements exist in the Hub section.
+- All six target route radio IDs exist.
+- All six destination sections exist.
+- No Hub `h-return` element remains.
+- No Hub `h-music` element remains.
+- No Hub `h-beasts` element remains.
+- Final hotspot rules are present once and override the obsolete legacy geometry earlier in the historical stylesheet.
+- Still: 704 × 1056 = exact 2:3.
+- Video: 768 × 1152 = exact 2:3.
+- Video is H.264, 10 seconds, no audio.
+- Still/video geometry correlation was checked; no crop/aspect mismatch.
+- Keyboard activation and live reduced-motion preference handling added in commit `ebb915109169997b45a1ef41044c388817d59b6d`.
 
 ## Current GitHub state
 
-Branch: `hub-approved-art-staging`
+Repository: `TreeEmber/Tree-Ember-Quest`  
+Branch: `hub-approved-art-staging`  
+Latest Hub QA commit: `ebb915109169997b45a1ef41044c388817d59b6d`
 
-The six clickable hotspot labels and final percentage geometry are already wired in `index.html`.
+Draft PR #2 remains open against `main`.
 
-FINAL MEDIA INTEGRATED on October 5, 2026:
-- `assets/portal-hub-final.jpg`
-- `assets/portal-hub-final-fairy.mp4`
-- `index.html` now layers the final animation over the accepted still and keeps six HTML hotspot portals above the media.
-- Reduced-motion users see the final still because the Hub video is hidden by `prefers-reduced-motion`.
-- Hub video pauses whenever the Hub route is not active or the document is hidden.
-- Hotspot overlap between Living Library / Briarbridge Market and the lower destinations was removed during QA.
-
-Keep the PR in draft until the user has reviewed the integrated staging result and explicitly approves promotion to `main`.
+**Do not merge to main/live until founder visual review of the integrated staging result is complete.**
