@@ -109,4 +109,12 @@ Branch: `hub-approved-art-staging`
 
 The six clickable hotspot labels and final percentage geometry are already wired in `index.html`.
 
-The final still/video binaries must be placed in the repository before publication. Do not merge the Hub PR until the final media is present and visual hotspot QA passes.
+FINAL MEDIA INTEGRATED on October 5, 2026:
+- `assets/portal-hub-final.jpg`
+- `assets/portal-hub-final-fairy.mp4`
+- `index.html` now layers the final animation over the accepted still and keeps six HTML hotspot portals above the media.
+- Reduced-motion users see the final still because the Hub video is hidden by `prefers-reduced-motion`.
+- Hub video pauses whenever the Hub route is not active or the document is hidden.
+- Hotspot overlap between Living Library / Briarbridge Market and the lower destinations was removed during QA.
+
+Keep the PR in draft until the user has reviewed the integrated staging result and explicitly approves promotion to `main`.
