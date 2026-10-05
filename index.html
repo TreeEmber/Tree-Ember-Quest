@@ -4394,10 +4394,13 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
 (function(){
   const hubVideo=document.getElementById('teHubVideo');
   const hubRoute=document.getElementById('r-hub');
-  const reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const motionQuery=window.matchMedia
+    ? window.matchMedia('(prefers-reduced-motion: reduce)')
+    : null;
   if(!hubVideo)return;
 
   function syncHubVideo(){
+    const reduced=!!(motionQuery&&motionQuery.matches);
     if(reduced || !hubRoute || !hubRoute.checked || document.hidden){
       try{hubVideo.pause()}catch(e){}
       return;
@@ -4408,8 +4411,26 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
     }catch(e){}
   }
 
+  /* Labels are the click layer over the artwork. Make Enter/Space
+     activate them like real buttons for keyboard users. */
+  document.querySelectorAll('.hub .hub-hit').forEach(hit=>{
+    hit.addEventListener('keydown',event=>{
+      if(event.key==='Enter' || event.key===' '){
+        event.preventDefault();
+        hit.click();
+      }
+    });
+  });
+
   document.querySelectorAll('input.state[name="r"]').forEach(r=>r.addEventListener('change',syncHubVideo));
   document.addEventListener('visibilitychange',syncHubVideo);
+  if(motionQuery){
+    if(typeof motionQuery.addEventListener==='function'){
+      motionQuery.addEventListener('change',syncHubVideo);
+    }else if(typeof motionQuery.addListener==='function'){
+      motionQuery.addListener(syncHubVideo);
+    }
+  }
   syncHubVideo();
 })();
 </script>
