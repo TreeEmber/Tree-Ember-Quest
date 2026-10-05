@@ -113,11 +113,21 @@ Verified on staging:
 - Still/video geometry correlation was checked; no crop/aspect mismatch.
 - Keyboard activation and live reduced-motion preference handling added in commit `ebb915109169997b45a1ef41044c388817d59b6d`.
 
+
+- Browser-render QA was executed at 390×844 phone portrait, 844×390 phone landscape, 834×1194 tablet portrait, and 1440×1200 desktop.
+- All six portals activated the correct route at every tested size.
+- Enter/Space keyboard activation passed.
+- No hotspot overlap was detected at any tested size.
+- Reduced-motion test passed: video hidden/paused, final still visible.
+- Hub video loaded and played with pointer-events disabled.
+- Obsolete legacy Hub hotspot CSS was removed in commit `2e88ab87e25e1ef9f6c72dfc54904d6734b23f50`, leaving the final geometry defined once.
+- Visual QA montage is archived in Drive as `Portal Hub — INTEGRATED QA MONTAGE — 2026-10-05.jpg` (Drive ID `1kNrmynYSoUxTvr9DQlNq71pO_U3-D2cU`).
+
 ## Current GitHub state
 
 Repository: `TreeEmber/Tree-Ember-Quest`  
 Branch: `hub-approved-art-staging`  
-Latest Hub QA commit: `ebb915109169997b45a1ef41044c388817d59b6d`
+Latest Hub code cleanup commit: `2e88ab87e25e1ef9f6c72dfc54904d6734b23f50`
 
 Draft PR #2 remains open against `main`.
 
