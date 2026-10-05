@@ -126,9 +126,23 @@ Verified on staging:
 ## Current GitHub state
 
 Repository: `TreeEmber/Tree-Ember-Quest`  
-Branch: `hub-approved-art-staging`  
-Latest Hub code cleanup commit: `2e88ab87e25e1ef9f6c72dfc54904d6734b23f50`
+Production branch: `main`  
+Merged PR: `#2`  
+Merge commit: `75a86abd647d4a7c2d1067e32f66fe99dfa64e61`
 
-Draft PR #2 remains open against `main`.
+PR #2 was approved by the founder and merged to `main` on October 5, 2026.
 
-**Do not merge to main/live until founder visual review of the integrated staging result is complete.**
+Merge commit: `75a86abd647d4a7c2d1067e32f66fe99dfa64e61`
+
+GitHub Pages workflow `Deploy Tree & Ember V70` run #7 completed successfully for that merge.
+
+
+## Production promotion — October 5, 2026
+
+Founder approval received.
+
+- PR #2 was marked ready and merged into `main`.
+- Merge commit: `75a86abd647d4a7c2d1067e32f66fe99dfa64e61`.
+- GitHub Pages workflow `Deploy Tree & Ember V70` run #7 completed successfully.
+- The deployed production source contains `assets/portal-hub-final.jpg`, `assets/portal-hub-final-fairy.mp4`, and exactly six main-Hub hotspots.
+- The final Hub baseline is now the production reference. Future changes should branch from current `main` and must preserve the Moon Room lock unless the founder explicitly changes that rule.
