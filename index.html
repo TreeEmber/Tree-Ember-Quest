@@ -16,15 +16,21 @@ body{overflow:hidden}
 #r-music:checked~.music,#r-photo:checked~.photo{display:block}
 label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
 
-/* PAGE 1 */
-.gate img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
-.gate-sign{position:absolute;z-index:4;left:29%;top:34%;width:42%;height:11%;background:transparent;border-radius:18px}
-.skip{position:absolute;z-index:5;right:16px;top:max(16px,env(safe-area-inset-top));padding:.72rem 1rem;border-radius:999px;
-background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead1;font:700 .78rem/1 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-
-/* PAGE 2: exact clean reference, no visible overlays at all */
-.walk img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
-.walk-hit{position:absolute;z-index:3;inset:0;background:transparent}
+/* PORTAL LANDING — persistent visible skip control */
+.skip{
+  position:absolute;
+  z-index:30;
+  right:16px;
+  top:max(16px,env(safe-area-inset-top));
+  padding:.72rem 1rem;
+  border-radius:999px;
+  background:rgba(20,15,10,.58);
+  border:1px solid rgba(240,217,165,.3);
+  color:#f5ead1;
+  font:700 .78rem/1 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  pointer-events:auto;
+  touch-action:manipulation;
+}
 
 /* HUB shell. Final portal geometry is defined once in the
    FINAL PORTAL HUB HOTSPOTS block near the end of this stylesheet. */
@@ -44,59 +50,6 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
 .logins{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
 .login{display:block;padding:18px;border:1px solid rgba(240,217,165,.22);border-radius:16px;background:rgba(30,48,36,.75);color:#f3e3bd;font:700 1rem/1.2 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 @media(max-width:620px){.logins{grid-template-columns:1fr}}
-
-/* V43 — approved Page 2 wording restored, nothing else added */
-.walk-copy{
-  position:absolute;
-  z-index:4;
-  left:max(20px,env(safe-area-inset-left));
-  right:max(20px,env(safe-area-inset-right));
-  bottom:max(30px,calc(env(safe-area-inset-bottom) + 18px));
-  width:min(82vw,620px);
-  color:#f4e8cf;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(1.72rem,6vw,2.45rem);
-  font-weight:400;
-  line-height:1.04;
-  letter-spacing:-.01em;
-  text-shadow:
-    0 2px 6px rgba(0,0,0,.92),
-    0 5px 18px rgba(0,0,0,.72);
-  white-space:normal;
-  overflow:visible;
-  pointer-events:none;
-}
-@media(max-width:620px){
-  .walk-copy{
-    left:max(18px,env(safe-area-inset-left));
-    right:max(18px,env(safe-area-inset-right));
-    bottom:max(34px,calc(env(safe-area-inset-bottom) + 22px));
-    width:calc(100vw - 36px);
-    max-width:14ch;
-    font-size:clamp(1.55rem,6.4vw,2.02rem);
-    line-height:1.05;
-  }
-}
-
-
-/* V44 — Page 1 Enter Here hit area made robust; no visible change */
-.gate-sign{
-  left:20%!important;
-  top:25%!important;
-  width:60%!important;
-  height:28%!important;
-  z-index:20!important;
-  display:block!important;
-  pointer-events:auto!important;
-  touch-action:manipulation!important;
-  background:transparent!important;
-}
-.skip{
-  z-index:30!important;
-  pointer-events:auto!important;
-  touch-action:manipulation!important;
-}
-
 
 /* V45 — Briarbridge Market landing page
    Uses the user's approved cover and About artwork without altering them. */
@@ -3308,85 +3261,12 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
 
 
 /* ==========================================================
-   V70 — PAGE 1 IMAGE REBUILT
-   The artwork itself is reframed for phone; the HTML container
-   is no longer shifted sideways.
-   Requested visual shift: image 1/8in LEFT.
-   ========================================================== */
-.gate-v70{
-  overflow:hidden!important;
-  background:#081008!important;
-}
-.gate-art-wrap-v70{
-  position:absolute!important;
-  inset:0!important;
-  left:0!important;
-  top:0!important;
-  width:100%!important;
-  height:100%!important;
-  max-width:none!important;
-  max-height:none!important;
-  aspect-ratio:auto!important;
-  transform:none!important;
-  overflow:hidden!important;
-  box-shadow:none!important;
-  z-index:1!important;
-}
-.gate-art-wrap-v70::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:2;
-  pointer-events:none;
-  background:
-    radial-gradient(ellipse at 48% 46%,transparent 0 42%,rgba(0,0,0,.035) 68%,rgba(0,0,0,.16) 100%),
-    linear-gradient(180deg,rgba(0,0,0,.02),transparent 42%,rgba(0,0,0,.05));
-}
-.gate-main-art-v70{
-  position:absolute!important;
-  inset:0!important;
-  width:100%!important;
-  height:100%!important;
-  object-fit:cover!important;
-  object-position:center center!important;
-  transform:none!important;
-  z-index:1!important;
-  animation:gateLightBreath 10s ease-in-out infinite alternate!important;
-}
-
-/* Hotspot aligned to the hanging sign in the rebuilt image. */
-.gate-sign-v70{
-  position:absolute!important;
-  left:47.6%!important;
-  top:32.8%!important;
-  width:42%!important;
-  height:15%!important;
-  transform:translate(-50%,-50%)!important;
-  z-index:20!important;
-  display:block!important;
-  background:transparent!important;
-  border:0!important;
-  pointer-events:auto!important;
-  touch-action:manipulation!important;
-}
-
-/* Explicitly cancel all older sideways Page 1 shift patches. */
-@media (max-aspect-ratio: 3/4){
-  .gate-v70 .gate-art-wrap-v70{
-    left:0!important;
-    transform:none!important;
-  }
-  .gate-v70 .gate-sign-v70{
-    left:47.6%!important;
-  }
-}
-
-
-/* ==========================================================
-   CURRENT ENTRANCE VIDEO RESTORE — founder-approved sources
+   FINAL PORTAL LANDING LOCK — 2026-10-05
    Page 1: Briarlight Gate video
-   Page 2: Forest Journey video
-   Page 3+: preserved from existing live build
+   Page 2: Forest Journey video at 1.5x
+   Page 3: approved Portal Hub
+   Camera/crop and click geometry are locked unless the founder
+   explicitly approves a visual change.
    ========================================================== */
 .gate-video-current,.walk-video-current{
   overflow:hidden!important;
@@ -3492,7 +3372,7 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
 
 
 <section class="route gate gate-video-current">
-  <video id="tePage1Video" class="gate-current-video" autoplay muted playsinline preload="auto">
+  <video id="tePage1Video" class="gate-current-video" muted playsinline preload="auto" aria-hidden="true">
     <source src="assets/page1-briarlight-gate.mp4" type="video/mp4">
   </video>
   <label class="gate-current-enter" for="r-walk" role="button" tabindex="0" aria-label="Enter Briarlight Gate"></label>
@@ -3508,10 +3388,10 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
 
 
 <section class="route walk walk-video-current">
-  <video id="tePage2Video" class="walk-current-video" muted playsinline preload="auto">
+  <video id="tePage2Video" class="walk-current-video" muted playsinline preload="metadata" aria-hidden="true">
     <source src="assets/page2-forest-journey.mp4" type="video/mp4">
   </video>
-  <label class="walk-current-hit" for="r-hub" role="button" tabindex="0" aria-label="Continue to the Tree and Ember Portal Hub"></label>
+  <label class="walk-current-hit" for="r-hub" role="button" tabindex="0" aria-label="Skip the Forest Journey and continue to the Tree and Ember Portal Hub"></label>
 </section>
 
 
@@ -4275,15 +4155,32 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
   const gate=document.getElementById('r-gate');
   const walk=document.getElementById('r-walk');
   const radios=[...document.querySelectorAll('input.state[name="r"]')];
-  const reduced=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const motionQuery=window.matchMedia
+    ? window.matchMedia('(prefers-reduced-motion: reduce)')
+    : null;
+
+  function reducedMotion(){
+    return !!(motionQuery && motionQuery.matches);
+  }
+
+  function safePause(v){
+    if(!v)return;
+    try{v.pause()}catch(e){}
+  }
 
   function safePlay(v){
-    if(!v || reduced)return;
+    if(!v || reducedMotion() || document.hidden)return;
     try{
       const promise=v.play();
       if(promise && promise.catch)promise.catch(()=>{});
     }catch(e){}
   }
+
+  function reset(v){
+    if(!v)return;
+    try{v.currentTime=0}catch(e){}
+  }
+
   function goTo(id){
     const target=document.getElementById(id);
     if(!target)return;
@@ -4296,51 +4193,86 @@ background:rgba(20,15,10,.58);border:1px solid rgba(240,217,165,.3);color:#f5ead
     try{p2.playbackRate=1.5}catch(e){}
   }
 
-  function syncEntranceMedia(){
+  function syncEntranceMedia(resetActive){
+    const reduced=reducedMotion();
+
     if(p1){
       if(gate && gate.checked){
-        p1.currentTime=0;
-        safePlay(p1);
+        if(resetActive)reset(p1);
+        reduced ? safePause(p1) : safePlay(p1);
       }else{
-        try{p1.pause()}catch(e){}
+        safePause(p1);
       }
     }
+
     if(p2){
       if(walk && walk.checked){
-        p2.currentTime=0;
+        if(resetActive)reset(p2);
         setPage2Speed();
-        safePlay(p2);
+        reduced ? safePause(p2) : safePlay(p2);
       }else{
-        try{p2.pause()}catch(e){}
+        safePause(p2);
       }
     }
   }
 
   if(p1){
     p1.addEventListener('ended',()=>{
-      if(gate && gate.checked) goTo('r-walk');
+      if(gate && gate.checked)goTo('r-walk');
+    });
+    p1.addEventListener('error',()=>{
+      if(gate && gate.checked)goTo('r-walk');
     });
   }
 
   if(p2){
     p2.addEventListener('loadedmetadata',setPage2Speed);
     p2.addEventListener('ratechange',()=>{
-      if(Math.abs(p2.playbackRate-1.5)>.01) setPage2Speed();
+      if(Math.abs(p2.playbackRate-1.5)>.01)setPage2Speed();
     });
     p2.addEventListener('ended',()=>{
-      if(walk && walk.checked) goTo('r-hub');
+      if(walk && walk.checked)goTo('r-hub');
+    });
+    p2.addEventListener('error',()=>{
+      if(walk && walk.checked)goTo('r-hub');
     });
   }
 
-  radios.forEach(r=>r.addEventListener('change',syncEntranceMedia));
+  /* Labels are the interaction layer over the entrance artwork.
+     Make Enter/Space activate them like real buttons. */
+  document.querySelectorAll(
+    '.gate-current-enter, .gate .skip, .walk-current-hit'
+  ).forEach(hit=>{
+    hit.addEventListener('keydown',event=>{
+      if(event.key==='Enter' || event.key===' '){
+        event.preventDefault();
+        hit.click();
+      }
+    });
+  });
+
+  radios.forEach(r=>r.addEventListener('change',()=>syncEntranceMedia(true)));
+
   document.addEventListener('visibilitychange',()=>{
     if(document.hidden){
-      try{p1&&p1.pause()}catch(e){}
-      try{p2&&p2.pause()}catch(e){}
-    }else syncEntranceMedia();
+      safePause(p1);
+      safePause(p2);
+    }else{
+      syncEntranceMedia(false);
+    }
   });
+
+  if(motionQuery){
+    const onMotionChange=()=>syncEntranceMedia(false);
+    if(typeof motionQuery.addEventListener==='function'){
+      motionQuery.addEventListener('change',onMotionChange);
+    }else if(typeof motionQuery.addListener==='function'){
+      motionQuery.addListener(onMotionChange);
+    }
+  }
+
   setPage2Speed();
-  syncEntranceMedia();
+  syncEntranceMedia(true);
 })();
 </script>
 
