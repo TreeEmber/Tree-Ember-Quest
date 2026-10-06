@@ -3296,6 +3296,27 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
   pointer-events:auto!important;
   touch-action:manipulation!important;
 }
+/* Preserve the current approved Skip Journey appearance here so
+   obsolete historical .gate .skip rules cannot control production. */
+.gate-video-current .skip{
+  position:absolute!important;
+  z-index:30!important;
+  top:max(14px,env(safe-area-inset-top))!important;
+  right:14px!important;
+  bottom:auto!important;
+  width:auto!important;
+  height:auto!important;
+  min-height:0!important;
+  padding:.52rem .72rem!important;
+  border-radius:999px!important;
+  background:rgba(20,15,10,.58)!important;
+  border:1px solid rgba(240,217,165,.3)!important;
+  color:#f5ead1!important;
+  font:700 .74rem/1 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+  opacity:.86!important;
+  pointer-events:auto!important;
+  touch-action:manipulation!important;
+}
 .walk-current-hit{
   position:absolute!important;
   inset:0!important;
