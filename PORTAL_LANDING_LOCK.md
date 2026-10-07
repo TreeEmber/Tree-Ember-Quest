@@ -1,8 +1,12 @@
 # Tree & Ember — Portal Landing Lock
 
-Status: **STAGING LOCKDOWN COMPLETE — founder review required before merge**
+Status: **PRODUCTION LOCKED — founder approved and merged October 6, 2026**
 
-Branch: `portal-landing-lockdown`
+Production branch: `main`
+
+Merged PR: `#3`
+
+Merge commit: `368c89c13622f87e1c6a75a6ec6e75da310f2184`
 
 ## Locked entrance sequence
 
@@ -94,12 +98,13 @@ Gate Enter hotspot and Skip Journey did not overlap at any tested size.
 - `44ca9f9a426df0ac1b074512c2ce6d9b19df0225` — Lock Portal Landing entrance flow
 - `0f8b0959f497c675160af9a40988ec1d520e18bc` — Make Portal Landing styles authoritative
 
-## Merge gate
+## Production promotion — October 6, 2026
 
-Do not merge this branch until founder review/approval.
+Founder approval received.
 
-After approval:
-1. merge to `main`
-2. verify GitHub Pages deployment succeeds
-3. verify production source still contains the two approved entrance videos and the final Hub assets
-4. update Drive master records to production baseline
+- PR #3 was marked ready and merged into `main`.
+- Merge commit: `368c89c13622f87e1c6a75a6ec6e75da310f2184`.
+- GitHub Pages workflow `Deploy Tree & Ember V70` run #9 completed successfully for the merge commit.
+- Production source still contains the two approved entrance videos, the final Hub animation, and exactly six Hub hotspots.
+- This entrance flow is now the production baseline.
+- Future Portal Landing changes must branch from current `main` and preserve this lock unless the founder explicitly approves a change.
