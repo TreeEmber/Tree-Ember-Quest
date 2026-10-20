@@ -4047,10 +4047,9 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
 
 <section class="route branch beasts"><div class="inner"><label class="back" for="r-hub">← Hub</label><div class="card"><h1>Mythical Beasts &amp; Legends</h1><p>Folklore, legends, extraordinary creatures, and the stories people have carried across generations.</p></div></div></section>
 
-
 <section class="route branch homeschool owls-school" aria-label="Tree and Ember Homeschool: Owl's Lessons">
   <div class="owls-school-shell">
-    <label class="owls-back" for="r-hub" role="button" tabindex="0">← Back to the Portal Hub</label>
+    <label class="owls-back" for="r-hub" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">← Back to the Portal Hub</label>
     <div class="owls-school-hero">
       <div class="owls-school-copy">
         <span class="owls-eyebrow">Tree &amp; Ember Homeschool</span>
