@@ -7,6 +7,13 @@ on:
       - scripts/render_hub_hollow_video.py
       - assets/portal-hub-hollow-final.jpg
       - .github/workflows/hub-hollow-video.yml
+  pull_request:
+    branches:
+      - main
+    paths:
+      - scripts/render_hub_hollow_video.py
+      - assets/portal-hub-hollow-final.jpg
+      - .github/workflows/hub-hollow-video.yml
   workflow_dispatch:
 permissions:
   contents: write
