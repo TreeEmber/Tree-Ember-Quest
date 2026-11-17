@@ -13,8 +13,10 @@ try {
     await img.evaluate(el=>el.decode());
     const alt=await img.getAttribute('alt');
     if(!alt.includes('The Oaken Emporium'))throw Error('Wrong hub alt');
+    const aspect=await img.evaluate(el=>({w:el.naturalWidth,h:el.naturalHeight}));
+    if(aspect.w!==512||aspect.h!==910)throw Error('Poster does not match 512x910 video geometry');
     const source=await page.locator('#teHubVideo source').getAttribute('src');
-    if(source!=='assets/portal-hub-oaken-emporium-ambient.mp4')throw Error('Video source not updated');
+    if(source!=='assets/portal-hub-gemini-ambient.mp4')throw Error('Video source not updated');
     const mediaResponse=await page.request.get(origin+source);
     if(!mediaResponse.ok()||(await mediaResponse.body()).byteLength<200000)throw Error('New animation file not served correctly');
     // Headless Chromium on CI can lack H.264 codecs; FFprobe verifies the stream separately.
@@ -31,7 +33,7 @@ try {
     await page.locator('a[href="#artistic"]').first().click();
     if(!await page.locator('#artistic').isVisible())throw Error('Artistic Visions missing');
     if(errors.length)throw Error('Browser errors: '+errors.join('; '));
-    console.log('PASS',width,height,'six hotspots, poster, 9s video loaded, public marketplace, both shop profiles');
+    console.log('PASS',width,height,'six original-position hotspots, matched Gemini poster, 10s silent clip served, marketplace, both store profiles');
     await page.close();
   }
   const reduced=await browser.newPage({reducedMotion:'reduce',viewport:{width:390,height:844}});
