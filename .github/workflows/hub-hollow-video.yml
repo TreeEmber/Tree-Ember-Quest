@@ -24,6 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: fix/hub-the-hollow-portal-20261116
           persist-credentials: true
       - name: Install local rendering dependencies
         run: |
