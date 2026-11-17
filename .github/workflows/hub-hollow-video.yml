@@ -1,0 +1,12 @@
+# Historical sign-only prototype kept for recovery.
+# Superseded by founder-approved full Hub replacement, 2026-11-16.
+name: Archived previous Hollow sign renderer
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  archived:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "Archived sign-only renderer; new approved Hub animation is already built."
