@@ -3361,12 +3361,12 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
 }
 
 /* Six main-Hub portals only. Keep the central stairs/waterfall as breathing space. */
-.hub .h-nook{left:7%;top:2%;width:36%;height:23%;border-radius:24%}
-.hub .h-moon{left:54%;top:2%;width:44%;height:23%;border-radius:30%}
-.hub .h-library{left:0%;top:27.5%;width:56%;height:26.5%;border-radius:16%}
-.hub .h-market{left:63%;top:27%;width:36%;height:27%;border-radius:16%}
-.hub .h-homeschool{left:0%;top:54.5%;width:47%;height:25%;border-radius:16%}
-.hub .h-photo{left:64%;top:71%;width:35%;height:27%;border-radius:16%}
+.hub .h-nook{left:2%;top:11%;width:47%;height:22%;border-radius:24%}
+.hub .h-moon{left:2%;top:32.5%;width:47%;height:21.5%;border-radius:24%}
+.hub .h-library{left:0%;top:53.5%;width:49%;height:21%;border-radius:16%}
+.hub .h-market{left:53%;top:12%;width:47%;height:32%;border-radius:16%}
+.hub .h-homeschool{left:0%;top:74%;width:49%;height:23%;border-radius:16%}
+.hub .h-photo{left:53%;top:65%;width:47%;height:32%;border-radius:16%}
 .hub-hit:focus-visible{
   outline:3px solid rgba(255,234,177,.95)!important;
   outline-offset:-3px!important;
@@ -3443,8 +3443,9 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
 @media(max-width:820px){.owls-school-art{min-height:330px!important;background-size:790px auto!important}}
 
 
-/* The Hollow is painted directly into the revised still and video assets.
-   Original source files remain preserved for recovery; no floating sign layer. */
+/* The founder-approved Oaken Emporium artwork replaces only the Hub scene.
+   All six clickable rooms are realigned to the approved replacement image.
+   Briarlight Gate and Forest Journey originals stay untouched. */
 </style>
 </head>
 <body>
@@ -3493,15 +3494,15 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
 
 <section class="route hub">
 <div class="hub-frame">
-<img class="hub-approved-art" src="assets/portal-hub-hollow-final.jpg" alt="Tree & Ember Portal Hub with Wrenwood Nook, The Moon Room, Living Library, The Hollow marketplace, Tree and Ember Homeschool Owl’s Lessons, and Ember’s Photography">
-<video id="teHubVideo" class="hub-final-video" autoplay muted loop playsinline preload="auto" poster="assets/portal-hub-hollow-final.jpg" aria-hidden="true">
-  <source src="assets/portal-hub-hollow-fairy.mp4" type="video/mp4">
+<img class="hub-approved-art" src="assets/portal-hub-oaken-emporium-poster.jpg" alt="Tree & Ember living tree Portal Hub with Wrenwood Nook, The Moon Room, Living Library, The Oaken Emporium marketplace, Tree and Ember Homeschool Owl’s Lessons, and Ember’s Photography">
+<video id="teHubVideo" class="hub-final-video" autoplay muted loop playsinline preload="auto" poster="assets/portal-hub-oaken-emporium-poster.jpg" aria-hidden="true">
+  <source src="assets/portal-hub-oaken-emporium-ambient.mp4" type="video/mp4">
 </video>
 
 <label class="hub-hit h-nook" for="r-nook" role="button" tabindex="0" aria-label="Open Wrenwood Nook"></label>
 <label class="hub-hit h-moon" for="r-moon" role="button" tabindex="0" aria-label="Open The Moon Room"></label>
 <label class="hub-hit h-library" for="r-library" role="button" tabindex="0" aria-label="Open Living Library"></label>
-<a class="hub-hit h-market" href="https://tree-and-ember-lrhb9dvbv-te-bbe5.vercel.app/market-hollow.html" aria-label="Enter The Hollow, the shared marketplace for Briarbridge Market, Artistic Visions, and other approved makers"></a>
+<a class="hub-hit h-market" href="oaken-emporium.html" aria-label="Enter The Oaken Emporium marketplace, with Briarbridge Market, Artistic Visions and future approved makers"></a>
 <label class="hub-hit h-homeschool" for="r-homeschool" role="button" tabindex="0" aria-label="Open Tree and Ember Homeschool — Owl’s Lessons"></label>
 <label class="hub-hit h-photo" for="r-photo" role="button" tabindex="0" aria-label="Open Ember’s Photography"></label>
 </div>
@@ -4433,17 +4434,17 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
     'r-nook':'#wrenwood-nook',
     'r-beasts':'#mythical-beasts-legends',
     'r-library':'#living-library',
-    'r-market':'#the-hollow',
+    'r-market':'#oaken-emporium',
     'r-homeschool':'#homeschool',
     'r-music':'#heartwood-lounge',
     'r-photo':'#embers-photography'
   };
   const hashRoute=Object.fromEntries(Object.entries(routeHash).map(([id,hash])=>[hash,id]));
   // Legacy marketplace bookmarks must not reopen the old single-store prototype.
-  const hollowPreview='https://tree-and-ember-lrhb9dvbv-te-bbe5.vercel.app/market-hollow.html';
+  const emporiumPage='oaken-emporium.html';
   function openHash(){
-    if(location.hash==='#the-hollow'||location.hash==='#briarbridge-market'){
-      window.location.assign(hollowPreview);return;
+    if(location.hash==='#the-hollow'||location.hash==='#briarbridge-market'||location.hash==='#oaken-emporium'){
+      window.location.assign(emporiumPage);return;
     }
     const id=hashRoute[location.hash];
     const el=id&&document.getElementById(id);
@@ -4455,7 +4456,7 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
   document.querySelectorAll('input.state[name="r"]').forEach(el=>{
     el.addEventListener('change',()=>{
       if(!el.checked)return;
-      if(el.id==='r-market'){window.location.assign(hollowPreview);return;}
+      if(el.id==='r-market'){window.location.assign(emporiumPage);return;}
       const hash=routeHash[el.id];
       if(hash&&location.hash!==hash) history.replaceState(null,'',hash);
     });
