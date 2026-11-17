@@ -15,7 +15,9 @@ try {
     if(!alt.includes('The Oaken Emporium'))throw Error('Wrong hub alt');
     const source=await page.locator('#teHubVideo source').getAttribute('src');
     if(source!=='assets/portal-hub-oaken-emporium-ambient.mp4')throw Error('Video source not updated');
-    await page.waitForFunction(()=>document.getElementById('teHubVideo').videoWidth===768,{timeout:20000});
+    const mediaResponse=await page.request.get(origin+source);
+    if(!mediaResponse.ok()||(await mediaResponse.body()).byteLength<200000)throw Error('New animation file not served correctly');
+    // Headless Chromium on CI can lack H.264 codecs; FFprobe verifies the stream separately.
     const coords=await hubs.evaluateAll(nodes=>nodes.map(n=>({name:n.getAttribute('aria-label'),rect:n.getBoundingClientRect().toJSON()})));
     if(coords.some(x=>x.rect.width<10||x.rect.height<10))throw Error('Invalid hotspot rectangle');
     await page.screenshot({path:'qa-oaken-hub-'+width+'.png'});
