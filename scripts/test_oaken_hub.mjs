@@ -16,7 +16,7 @@ try {
     const aspect=await img.evaluate(el=>({w:el.naturalWidth,h:el.naturalHeight}));
     if(aspect.w!==512||aspect.h!==910)throw Error('Poster does not match 512x910 video geometry');
     const source=await page.locator('#teHubVideo source').getAttribute('src');
-    if(source!=='assets/portal-hub-gemini-ambient.mp4')throw Error('Video source not updated');
+    if(source!=='assets/portal-hub-gemini-softloop.mp4')throw Error('Video source not updated');
     const mediaResponse=await page.request.get(origin+source);
     if(!mediaResponse.ok()||(await mediaResponse.body()).byteLength<200000)throw Error('New animation file not served correctly');
     // Headless Chromium on CI can lack H.264 codecs; FFprobe verifies the stream separately.
