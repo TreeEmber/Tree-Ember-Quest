@@ -1,48 +1,12 @@
-name: Private Hollow sign video render
+# Historical sign-only prototype kept for recovery.
+# Superseded by founder-approved full Hub replacement, 2026-11-16.
+name: Archived previous Hollow sign renderer
 on:
-  push:
-    branches:
-      - fix/hub-the-hollow-portal-20261116
-    paths:
-      - scripts/render_hub_hollow_video.py
-      - assets/portal-hub-hollow-final.jpg
-      - .github/workflows/hub-hollow-video.yml
-  pull_request:
-    branches:
-      - main
-    paths:
-      - scripts/render_hub_hollow_video.py
-      - assets/portal-hub-hollow-final.jpg
-      - .github/workflows/hub-hollow-video.yml
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
 jobs:
-  rebuild-private-media:
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
+  archived:
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: fix/hub-the-hollow-portal-20261116
-          persist-credentials: true
-      - name: Install local rendering dependencies
-        run: |
-          python -m pip install --disable-pip-version-check Pillow
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg
-          ffmpeg -hide_banner -version | head -1
-      - name: Build a corrected copy of the Hub animation
-        run: |
-          python scripts/render_hub_hollow_video.py
-          test -s assets/portal-hub-hollow-fairy.mp4
-          test -s assets/portal-hub-hollow-video-frame.jpg
-          test $(stat -c %s assets/portal-hub-hollow-fairy.mp4) -lt 95000000
-      - name: Commit outputs on this DRAFT branch only
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/portal-hub-hollow-fairy.mp4 assets/portal-hub-hollow-video-frame.jpg
-          git diff --cached --quiet && exit 0
-          git commit -m "Hub media: render corrected THE HOLLOW video without overwriting approved original"
-          git push origin HEAD:fix/hub-the-hollow-portal-20261116
+      - run: echo "Archived sign-only renderer; new approved Hub animation is already built."
