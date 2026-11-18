@@ -20,6 +20,9 @@ on:
       - scripts/test_oaken_hub.mjs
       - scripts/verify_gemini_hub_media.py
       - .github/workflows/oaken-hub-qa.yml
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:

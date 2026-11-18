@@ -3448,6 +3448,8 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
    All six clickable rooms are realigned to the approved replacement image.
    Briarlight Gate and Forest Journey originals stay untouched. */
 </style>
+<link rel="stylesheet" href="assets/realm-interiors.css">
+<script defer src="assets/realm-interiors.js"></script>
 </head>
 <body>
 <input class="state" type="radio" name="r" id="r-gate" checked>
@@ -3509,8 +3511,69 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
 </div>
 </section>
 
-<section class="route branch library"><div class="inner"><label class="back" for="r-hub">← Hub</label><div class="card"><h1>Living Library</h1><p>The knowledge and discovery branch of Tree & Ember.</p></div></div></section>
-<section class="route branch moon"><div class="inner"><label class="back" for="r-hub">← Hub</label><div class="card"><h1>The Moon Room</h1><p>A quieter space for wonder, reflection, and gentle exploration.</p></div></div></section>
+<section class="route branch library realm-route" aria-labelledby="living-room-heading">
+  <main class="realm">
+    <div class="realm-top"><label class="realm-back" for="r-hub" role="button" tabindex="0">← Back to the Hub</label><span class="realm-brand">Tree &amp; Ember · A living library</span></div>
+    <header class="realm-mast">
+      <p class="realm-eyebrow">Follow the roots of curiosity</p>
+      <h1 id="living-room-heading">The Living Library</h1>
+      <p class="realm-lead">Inside this ancient hollow, books are doorways. Step toward wild places, old stories, the stars, and the discoveries waiting just outside your door.</p>
+    </header>
+    <section class="realm-table" aria-labelledby="living-table-heading">
+      <h2 id="living-table-heading">The Keeper’s reading table</h2>
+      <p>Choose a book to open a realm or visit one of the shelves below. The larger searchable archive is being built.</p>
+      <div class="realm-books">
+        <label class="realm-book realm-route-link" for="r-beasts" role="button" tabindex="0" aria-label="Open Legends and Beasts"><span class="realm-glyph" aria-hidden="true">✧</span><span class="realm-book-title">Legends &amp; Beasts</span><span class="realm-book-hint">Enter the realm</span></label>
+        <a class="realm-book" href="#library-catalog"><span class="realm-glyph" aria-hidden="true">⌕</span><span class="realm-book-title">The Archive</span><span class="realm-book-hint">Search the first shelves</span></a>
+        <a class="realm-book" href="#library-about"><span class="realm-glyph" aria-hidden="true">❦</span><span class="realm-book-title">About the Library</span><span class="realm-book-hint">Discover our purpose</span></a>
+        <a class="realm-book" href="#library-living-legends"><span class="realm-glyph" aria-hidden="true">✺</span><span class="realm-book-title">Living Legends</span><span class="realm-book-hint">Ancient lineages</span></a>
+        <a class="realm-book" href="#library-dew-web"><span class="realm-glyph" aria-hidden="true">✦</span><span class="realm-book-title">Dew Web</span><span class="realm-book-hint">A featured discovery</span></a>
+        <label class="realm-book realm-route-link" for="r-music" role="button" tabindex="0" aria-label="Open Heartwood Lounge and Music Studio"><span class="realm-glyph" aria-hidden="true">♫</span><span class="realm-book-title">Heartwood Lounge</span><span class="realm-book-hint">Visit the music room</span></label>
+      </div>
+    </section>
+    <div class="realm-alcoves">
+      <section class="realm-alcove" id="library-catalog" aria-labelledby="library-archive-heading">
+        <p class="realm-feature">The Archive · First shelves</p><h2 id="library-archive-heading">Find a trail</h2>
+        <label class="realm-field" for="living-archive-search">Search subjects on this shelf</label>
+        <input class="realm-search" id="living-archive-search" type="search" placeholder="Try spiders, folklore, birds…" autocomplete="off" aria-describedby="living-archive-help">
+        <p class="realm-quiet" id="living-archive-help">Searches the titles listed here, not yet the complete future Library database.</p>
+        <ul class="realm-catalog" id="living-archive-results">
+          <li data-realm-query="dew web spiders nature observation photography"><strong>Dew Web</strong><small>Featured field discovery · Full source-checked lesson in preparation</small></li>
+          <li data-realm-query="ancient waters sturgeon horseshoe crabs sharks living legends"><strong>Ancient Waters</strong><small>Living Legends · Ancient aquatic lineages</small></li>
+          <li data-realm-query="ancient earth tuatara tortoise salamander scorpion living legends"><strong>Ancient Earth</strong><small>Living Legends · Ancient land lineages</small></li>
+          <li data-realm-query="dinosaurs among us birds owls ravens cassowaries"><strong>Dinosaurs Among Us</strong><small>Living Legends · Modern birds and their ancestors</small></li>
+          <li data-realm-query="legends beasts folklore culture myth"><strong>Legends &amp; Beasts</strong><small>Folklore and extraordinary creatures · Open from the reading table</small></li>
+          <li data-realm-query="field guides plants herbs botany foraging safety"><strong>Herbalist’s shelves</strong><small>Botanical research · Safety review before practical release</small></li>
+        </ul><p class="realm-empty" id="living-archive-empty" role="status" hidden>No matching titles on these first shelves yet.</p>
+      </section>
+      <section class="realm-alcove" id="library-about" aria-labelledby="library-about-heading"><p class="realm-feature">A library for everyone</p><h2 id="library-about-heading">May you find the knowledge you seek</h2><p>Here, natural history, practical knowledge, art, cultures, mythology and the everyday outdoors belong together. The learning paths are for curious adults and children alike.</p><p>We clearly distinguish verified evidence from identification pending, folklore, belief and original stories. Core learning remains free.</p></section>
+      <section class="realm-alcove" id="library-living-legends" aria-labelledby="library-legends-heading"><p class="realm-feature">Living Legends</p><h2 id="library-legends-heading">Some legends were imagined. Some are still alive.</h2><p>Explore Ancient Waters, Ancient Earth and Dinosaurs Among Us. These are living representatives of ancient evolutionary lineages—not modern species frozen unchanged in time.</p><p class="realm-quiet">Individual species entries, original photographs and conservation references will open as they complete review.</p></section>
+      <section class="realm-alcove" id="library-dew-web" aria-labelledby="library-dew-heading"><p class="realm-feature">First field discovery · In preparation</p><h2 id="library-dew-heading">Dew Web</h2><p>Look for morning dew outlining a spider web. Observe without touching the web or disturbing its builder. Notice how the droplets reveal different threads.</p><p>The complete photo-led lesson and species verification remain in development; this is an observation invitation, not a species identification.</p></section>
+    </div>
+    <footer class="realm-foot">The greatest discoveries rarely begin with certainty. They begin with curiosity.</footer>
+  </main>
+</section>
+<section class="route branch moon realm-route" aria-labelledby="moon-room-heading">
+  <main class="realm">
+    <div class="realm-top"><label class="realm-back" for="r-hub" role="button" tabindex="0">← Back to the Hub</label><span class="realm-brand">Tree &amp; Ember · Celestial hollow</span></div>
+    <header class="realm-mast">
+      <p class="realm-eyebrow">Beneath the branches · Beneath the stars</p>
+      <div class="realm-orbit" aria-hidden="true"></div>
+      <h1 id="moon-room-heading">The Moon Room</h1>
+      <p class="realm-lead">A sanctuary for night skies, quiet wonder, celestial science and the stories told beneath the moon. The blue-cyan ring stays still, just as the original Hub intended.</p>
+    </header>
+    <div class="realm-table">
+      <h2>Paths through the night</h2>
+      <div class="realm-accordion">
+        <details><summary>Look up: The night sky</summary><p>Begin with your sky, your season and your horizon. The full astronomy and seasonal observation library is being developed with sourced material.</p></details>
+        <details><summary>Stories written in the stars</summary><p>Constellation stories belong to many different cultural traditions. Future entries will credit the people and sources behind each tradition instead of treating them as interchangeable.</p></details>
+        <details><summary>A little quiet beneath the trees</summary><p>Stay awhile. This room is designed for unhurried reading, gentle discovery and accessible, optional animation.</p></details>
+      </div>
+      <div class="realm-link-row"><label class="realm-route-link" for="r-library" role="button" tabindex="0">Explore the Living Library</label></div>
+    </div>
+    <footer class="realm-foot">A small light is enough to begin.</footer>
+  </main>
+</section>
 
 
 <section class="route branch nook">
@@ -4061,7 +4124,21 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
 </section>
 
 
-<section class="route branch beasts"><div class="inner"><label class="back" for="r-hub">← Hub</label><div class="card"><h1>Mythical Beasts &amp; Legends</h1><p>Folklore, legends, extraordinary creatures, and the stories people have carried across generations.</p></div></div></section>
+<section class="route branch beasts realm-route" aria-labelledby="beasts-heading">
+  <main class="realm">
+    <div class="realm-top"><label class="realm-back" for="r-library" role="button" tabindex="0">← Back to the Library</label><span class="realm-brand">Living Library · Hidden story chamber</span></div>
+    <header class="realm-mast"><p class="realm-eyebrow">Tales at the edge of the known</p><h1 id="beasts-heading">Legends &amp; Beasts</h1><p class="realm-lead">Old myths, extraordinary creatures and real-world mysteries meet in a hidden room of the Library. Every story keeps its own roots.</p></header>
+    <section class="realm-table" aria-labelledby="beasts-paths-heading"><h2 id="beasts-paths-heading">Three paths through the tales</h2>
+      <div class="realm-accordion">
+        <details><summary>Folklore and cultural traditions</summary><p>Discover regional stories with their own names, communities, source traditions and historical settings. Living beliefs are treated respectfully, not used as generic fantasy decoration.</p></details>
+        <details><summary>Living Legends and natural history</summary><p>Follow the scientific stories of animals whose living lineages stretch deep into evolutionary history. Distinguish documented evidence from disputed claims.</p></details>
+        <details><summary>Original Tree &amp; Ember stories</summary><p>Our creative creatures and tales live in clearly labeled original fiction, apart from historical records and traditional accounts.</p></details>
+      </div>
+      <div class="realm-link-row"><label class="realm-route-link" for="r-library" role="button" tabindex="0">Return to the reading table</label></div>
+    </section>
+    <footer class="realm-foot">Some legends were imagined. Some are still alive.</footer>
+  </main>
+</section>
 
 <section class="route branch homeschool owls-school" aria-label="Tree and Ember Homeschool: Owl's Lessons">
   <div class="owls-school-shell">
@@ -4117,8 +4194,38 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
   </div>
 </section>
 
-<section class="route branch music"><div class="inner"><label class="back" for="r-hub">← Hub</label><div class="card"><h1>Heartwood Lounge &amp; Music Studio</h1><p>A cozy creative room for music, listening, learning, and future Tree &amp; Ember sound projects.</p></div></div></section>
-<section class="route branch photo"><div class="inner"><label class="back" for="r-hub">← Hub</label><div class="card"><h1>Ember’s Photography</h1><p>Tree &amp; Ember photography, field observations, galleries, and visual stories.</p></div></div></section>
+<section class="route branch music realm-route" aria-labelledby="music-heading">
+  <main class="realm">
+    <div class="realm-top"><label class="realm-back" for="r-library" role="button" tabindex="0">← Back to the Library</label><span class="realm-brand">Living Library · A warm hidden lounge</span></div>
+    <header class="realm-mast"><p class="realm-eyebrow">Follow the warmth, follow the music</p><h1 id="music-heading">Heartwood Lounge &amp; Music Studio</h1><p class="realm-lead">A place inside the roots to listen, create, learn and trade stories. Amber warmth, deep green wood and soft teal light belong here without overwhelming the room.</p></header>
+    <section class="realm-table" aria-labelledby="music-paths-heading"><h2 id="music-paths-heading">Inside Heartwood</h2>
+      <div class="realm-books">
+        <div class="realm-book"><span class="realm-glyph" aria-hidden="true">♫</span><span class="realm-book-title">The Listening Alcove</span><span class="realm-book-hint">Collection in preparation</span></div>
+        <div class="realm-book"><span class="realm-glyph" aria-hidden="true">♬</span><span class="realm-book-title">Music &amp; Making</span><span class="realm-book-hint">Creative studio planned</span></div>
+        <div class="realm-book"><span class="realm-glyph" aria-hidden="true">✧</span><span class="realm-book-title">Stories by the Fire</span><span class="realm-book-hint">Community concept</span></div>
+      </div>
+      <p class="realm-quiet">No music playback or community posting is activated yet. Future audio will require appropriate rights and an accessible stop control.</p>
+      <div class="realm-link-row"><label class="realm-route-link" for="r-library" role="button" tabindex="0">Back to the Living Library</label></div>
+    </section>
+    <footer class="realm-foot">Stay for the stories. Return for the songs.</footer>
+  </main>
+</section>
+<section class="route branch photo realm-route" aria-labelledby="photo-heading">
+  <main class="realm">
+    <div class="realm-top"><label class="realm-back" for="r-hub" role="button" tabindex="0">← Back to the Hub</label><span class="realm-brand">Tree &amp; Ember · Original photography</span></div>
+    <header class="realm-mast"><p class="realm-eyebrow">Light held for a moment</p><h1 id="photo-heading">Ember’s Photography</h1><p class="realm-lead">Wild places, small details and stories caught through a lens. The public galleries will feature approved original photographs, never substitute stock pictures.</p></header>
+    <section class="realm-table realm-gallery" aria-labelledby="photo-gallery-heading"><h2 id="photo-gallery-heading">The gallery halls</h2>
+      <div class="realm-photo-frames">
+        <div class="realm-photo-frame"><strong>Wildlife &amp; Wonder</strong><span>Original nature photography · Curating</span></div>
+        <div class="realm-photo-frame"><strong>Water &amp; Woodland</strong><span>Forest, coast and quiet places · Curating</span></div>
+        <div class="realm-photo-frame"><strong>Small Discoveries</strong><span>Field details and close observations · Curating</span></div>
+      </div>
+      <p class="realm-quiet">These are styled gallery frames, not published photographs. The private photo shortlist and approval checks remain separate.</p>
+      <div class="realm-link-row"><label class="realm-route-link" for="r-library" role="button" tabindex="0">Find a story in the Living Library</label></div>
+    </section>
+    <footer class="realm-foot">Original photographs. Real moments. A little wonder.</footer>
+  </main>
+</section>
 
 <iframe id="wrenwood-submit-frame" name="wrenwood-submit-frame"
         title="Wrenwood Nook secure submission response" aria-hidden="true"></iframe>
