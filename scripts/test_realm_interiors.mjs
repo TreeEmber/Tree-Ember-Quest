@@ -32,6 +32,17 @@ try{
     if(background==='rgb(255, 255, 255)')throw Error('Light background in '+type);
     const dim=await realm.locator('.realm').evaluate(el=>({scroll:el.scrollWidth,client:el.clientWidth}));
     if(dim.scroll>dim.client+2)throw Error('Horizontal overflow in '+type+' '+JSON.stringify(dim));
+    if(['library','music'].includes(type)){
+      const figure=realm.locator('.realm-hero-scene');
+      if(!await figure.isVisible())throw Error('Storyboard scene frame is not visible in '+type);
+      const info=await figure.locator('img').evaluate(async el=>{
+        await el.decode();
+        return {src:el.getAttribute('src'),naturalWidth:el.naturalWidth,naturalHeight:el.naturalHeight};
+      });
+      if(!info.src.includes('storyboard.webp')||info.naturalWidth<900||info.naturalHeight<700){
+        throw Error('Missing or undersized room artwork in '+type+': '+JSON.stringify(info));
+      }
+    }
     if(['library','beasts','music'].includes(type)){
       const expected=type==='music'?'heartwood-lounge-room-storyboard.webp':'living-library-room-storyboard.webp';
       const source=await realm.evaluate(el=>getComputedStyle(el,'::before').backgroundImage);
