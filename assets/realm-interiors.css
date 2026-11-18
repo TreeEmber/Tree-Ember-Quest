@@ -7,6 +7,25 @@
 }
 .branch.realm-route{overflow:auto!important;overscroll-behavior-y:contain;background:#07131b!important;color:var(--realm-cream)}
 .realm-route{--realm-shine:#87d9ce;--realm-bright:rgba(88,177,148,.20);--realm-shadow:rgba(29,54,43,.36)}
+/* Founder-supplied approved-as-storyboards environmental references,
+   staged in this draft for visual verification before promotion.
+   Atmospheric lights breathe; the paintings themselves never pan or zoom. */
+.library.realm-route::before{
+ background:
+  linear-gradient(180deg,rgba(3,15,18,.57),rgba(5,18,18,.78) 38%,rgba(7,15,14,.92) 100%),
+  url('living-library-room-storyboard.webp') center top / cover no-repeat;
+ animation:realm-scene-light 17s ease-in-out infinite alternate}
+.beasts.realm-route::before{
+ background:
+  linear-gradient(180deg,rgba(5,11,17,.72),rgba(10,21,19,.83) 50%,rgba(5,11,17,.95)),
+  url('living-library-room-storyboard.webp') 60% 30% / cover no-repeat;
+ animation:realm-scene-light 17s ease-in-out infinite alternate}
+.music.realm-route::before{
+ background:
+  linear-gradient(180deg,rgba(6,15,19,.65),rgba(11,27,23,.79) 42%,rgba(9,14,17,.94)),
+  url('heartwood-lounge-room-storyboard.webp') 48% 20% / cover no-repeat;
+ animation:realm-scene-light 17s ease-in-out infinite alternate}
+@keyframes realm-scene-light{from{opacity:.88}to{opacity:1}}
 .realm-route.moon{--realm-shine:#a9e9f8;--realm-bright:rgba(44,135,203,.19);--realm-shadow:rgba(25,36,82,.40)}
 .realm-route.photo{--realm-shine:#a6dcce;--realm-bright:rgba(73,145,164,.17);--realm-shadow:rgba(58,35,74,.34)}
 .realm-route.beasts{--realm-shine:#bbd3a1;--realm-bright:rgba(92,157,108,.17);--realm-shadow:rgba(55,45,42,.32)}
