@@ -11,7 +11,7 @@
 .realm-route.photo{--realm-shine:#a6dcce;--realm-bright:rgba(73,145,164,.17);--realm-shadow:rgba(58,35,74,.34)}
 .realm-route.beasts{--realm-shine:#bbd3a1;--realm-bright:rgba(92,157,108,.17);--realm-shadow:rgba(55,45,42,.32)}
 .realm-route.music{--realm-shine:#e6c888;--realm-bright:rgba(192,123,62,.18);--realm-shadow:rgba(48,32,28,.46)}
-.realm-route::before{content:"";position:fixed;inset:-5%;z-index:0;pointer-events:none;opacity:.95;
+.branch.realm-route::before{content:"";position:fixed;inset:-5%;z-index:0;pointer-events:none;opacity:.95;
   background:
    radial-gradient(ellipse at 50% 0%,var(--realm-bright),transparent 48%),
    radial-gradient(ellipse at 20% 70%,rgba(16,95,77,.19),transparent 35%),
@@ -19,7 +19,7 @@
    repeating-linear-gradient(99deg,rgba(17,24,22,.28) 0 7px,transparent 7px 28px),
    linear-gradient(130deg,#071b1d 0%,#111e1e 24%,#211a1a 49%,#0a2226 72%,#061217 100%);
  animation:realm-ambient 17s ease-in-out infinite alternate}
-.realm-route::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+.branch.realm-route::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
  background:
    radial-gradient(circle at 12% 12%,#c3e9c7 0 1px,transparent 2px),
    radial-gradient(circle at 87% 22%,#f0dba3 0 1px,transparent 2px),
@@ -137,7 +137,7 @@
  .realm::before{left:0;right:0;min-height:620px;border-radius:43% 43% 12% 12%/18% 18% 7% 7%}
 }
 @media(prefers-reduced-motion:reduce){
- .realm-route::before,.realm-route::after{animation:none!important;transform:none!important}
+ .branch.realm-route::before,.branch.realm-route::after{animation:none!important;transform:none!important}
  .realm-book,.realm-back,.realm-route-link,.realm-primary-link,.realm-secondary-link{transition:none!important}
  .realm-book:hover{transform:none}
 }
