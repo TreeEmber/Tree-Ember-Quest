@@ -7,6 +7,25 @@
 }
 .branch.realm-route{overflow:auto!important;overscroll-behavior-y:contain;background:#07131b!important;color:var(--realm-cream)}
 .realm-route{--realm-shine:#87d9ce;--realm-bright:rgba(88,177,148,.20);--realm-shadow:rgba(29,54,43,.36)}
+/* Founder-supplied approved-as-storyboards environmental references,
+   staged in this draft for visual verification before promotion.
+   Atmospheric lights breathe; the paintings themselves never pan or zoom. */
+.branch.library.realm-route::before{
+ background:
+  linear-gradient(180deg,rgba(3,15,18,.57),rgba(5,18,18,.78) 38%,rgba(7,15,14,.92) 100%),
+  url('living-library-room-storyboard.webp') center top / cover no-repeat;
+ animation:realm-scene-light 17s ease-in-out infinite alternate}
+.branch.beasts.realm-route::before{
+ background:
+  linear-gradient(180deg,rgba(5,11,17,.72),rgba(10,21,19,.83) 50%,rgba(5,11,17,.95)),
+  url('living-library-room-storyboard.webp') 60% 30% / cover no-repeat;
+ animation:realm-scene-light 17s ease-in-out infinite alternate}
+.branch.music.realm-route::before{
+ background:
+  linear-gradient(180deg,rgba(6,15,19,.65),rgba(11,27,23,.79) 42%,rgba(9,14,17,.94)),
+  url('heartwood-lounge-room-storyboard.webp') 48% 20% / cover no-repeat;
+ animation:realm-scene-light 17s ease-in-out infinite alternate}
+@keyframes realm-scene-light{from{opacity:.88}to{opacity:1}}
 .realm-route.moon{--realm-shine:#a9e9f8;--realm-bright:rgba(44,135,203,.19);--realm-shadow:rgba(25,36,82,.40)}
 .realm-route.photo{--realm-shine:#a6dcce;--realm-bright:rgba(73,145,164,.17);--realm-shadow:rgba(58,35,74,.34)}
 .realm-route.beasts{--realm-shine:#bbd3a1;--realm-bright:rgba(92,157,108,.17);--realm-shadow:rgba(55,45,42,.32)}
@@ -58,6 +77,14 @@
  box-shadow:0 24px 60px rgba(0,0,0,.39),inset 0 0 0 3px rgba(12,13,12,.4),inset 0 15px 25px rgba(178,133,78,.05)}
 .realm-table::after{content:"";position:absolute;pointer-events:none;inset:10px;border:1px solid rgba(179,139,82,.16);border-radius:inherit}
 .realm-table h2,.realm-gallery h2,.realm-side h2{font:400 clamp(1.55rem,3.7vw,2.35rem)/1.1 Georgia,serif;color:#f3deb2;margin:0 0 17px}
+.realm-hero-scene{position:relative;overflow:hidden;margin:0 auto clamp(22px,4vw,42px);border-radius:34px 34px 17px 17px;border:2px ridge rgba(192,154,93,.65);
+ background:#0a201d;box-shadow:0 22px 49px rgba(0,0,0,.48),inset 0 0 0 3px rgba(11,39,32,.4)}
+.realm-hero-scene img{display:block;width:100%;height:auto;max-height:min(53vh,520px);object-fit:cover;object-position:center 44%;filter:saturate(.91) brightness(.91);transition:filter .2s ease}
+.realm-hero-scene:hover img{filter:saturate(1) brightness(1)}
+.realm-hero-scene figcaption{position:relative;z-index:2;margin:0;padding:14px clamp(16px,3vw,25px);background:linear-gradient(90deg,rgba(18,37,33,.98),rgba(22,26,27,.94));color:#e3e7d5;border-top:1px solid rgba(199,168,109,.35);
+ font:500 .88rem/1.5 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+@media(max-width:480px){.realm-hero-scene{border-radius:21px 21px 10px 10px}.realm-hero-scene img{max-height:42vh}.realm-hero-scene figcaption{font-size:.80rem}}
+@media(prefers-reduced-motion:reduce){.realm-hero-scene img{transition:none!important}}
 .realm-books{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,2vw,20px);position:relative;z-index:2}
 .realm-book{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:220px;text-align:center;position:relative;padding:25px 18px;
  border:2px solid rgba(215,187,121,.48);border-left:11px ridge rgba(193,150,83,.65);border-radius:8px 19px 18px 7px;
