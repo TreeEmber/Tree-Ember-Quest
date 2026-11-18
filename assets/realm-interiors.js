@@ -10,6 +10,21 @@
         }
       });
     });
+    // Keep internal book jumps within the current Living Library route. The
+    // Hub's hash router only recognizes room hashes, not shelf anchor hashes.
+    document.querySelectorAll('.library a[href^="#library-"]').forEach(function(book){
+      book.addEventListener('click',function(event){
+        var id=book.getAttribute('href').slice(1);
+        var target=document.getElementById(id);
+        if(!target)return;
+        event.preventDefault();
+        target.scrollIntoView({behavior:window.matchMedia &&
+          window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',
+          block:'start'});
+        target.setAttribute('tabindex','-1');
+        target.focus({preventScroll:true});
+      });
+    });
     var search=document.getElementById('living-archive-search');
     var list=document.getElementById('living-archive-results');
     var empty=document.getElementById('living-archive-empty');
