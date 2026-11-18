@@ -32,6 +32,18 @@ try{
     if(background==='rgb(255, 255, 255)')throw Error('Light background in '+type);
     const dim=await realm.locator('.realm').evaluate(el=>({scroll:el.scrollWidth,client:el.clientWidth}));
     if(dim.scroll>dim.client+2)throw Error('Horizontal overflow in '+type+' '+JSON.stringify(dim));
+    if(type==='moon'){
+      const moonScene=realm.locator('.moon-scene');
+      if(!await moonScene.isVisible())throw Error('Moon observatory image is missing');
+      const moonImg=await moonScene.locator('img').evaluate(async el=>{
+        await el.decode();
+        return {src:el.getAttribute('src'),width:el.naturalWidth,height:el.naturalHeight,alt:el.alt};
+      });
+      if(moonImg.src!=='assets/moon-room-observatory-forest.webp'||moonImg.width<1400||moonImg.height<800){
+        throw Error('Moon observatory did not decode: '+JSON.stringify(moonImg));
+      }
+      if(!moonImg.alt.includes('telescope')||!moonImg.alt.includes('Big Dipper'))throw Error('Moon scene alt text insufficient');
+    }
     if(['library','music'].includes(type)){
       const figure=realm.locator('.realm-hero-scene');
       if(!await figure.isVisible())throw Error('Storyboard scene frame is not visible in '+type);
@@ -94,6 +106,9 @@ try{
  await page.goto(base+'#portal-hub',{waitUntil:'domcontentloaded'});
  const videoStyle=await page.locator('#teHubVideo').evaluate(el=>getComputedStyle(el).display);
  if(videoStyle!=='none')throw Error('Reduced motion Hub video should be hidden');
+ await page.goto(base+'#moon-room',{waitUntil:'domcontentloaded'});
+ const glowName=await page.locator('.moon-scene').evaluate(el=>getComputedStyle(el,'::after').animationName);
+ if(glowName!=='none')throw Error('Reduced motion must disable Moon artwork glow');
  console.log('PASS reduced-motion static rooms and Hub poster');
  await page.close();
 }finally{await browser.close()}
