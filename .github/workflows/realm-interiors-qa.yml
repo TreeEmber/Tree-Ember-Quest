@@ -16,6 +16,9 @@ on:
       - assets/realm-interiors.js
       - scripts/test_realm_interiors.mjs
       - .github/workflows/realm-interiors-qa.yml
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
