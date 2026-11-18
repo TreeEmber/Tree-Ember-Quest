@@ -42,6 +42,9 @@ try{
   if(!await page.locator('#living-archive-empty').isVisible())throw Error('Archive missing empty-state');
   await search.fill('');
   if(await page.locator('#living-archive-results li:visible').count()!==6)throw Error('Archive not restored');
+  await page.locator('.library a[href="#library-dew-web"]').click();
+  if(!page.url().endsWith('#living-library'))throw Error('Library shelf jump broke the public room route');
+  if(await page.evaluate(()=>document.activeElement?.id)!=='library-dew-web')throw Error('Library shelf jump did not move keyboard focus');
   await page.locator('.library .realm-route-link[for="r-beasts"]').first().focus();
   await page.keyboard.press('Enter');
   if(!await page.locator('#r-beasts').isChecked())throw Error('Keyboard book navigation failed');
