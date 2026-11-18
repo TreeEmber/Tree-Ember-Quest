@@ -7,8 +7,10 @@ on:
       - oaken-emporium.html
       - assets/portal-hub-gemini-poster.jpg
       - assets/portal-hub-gemini-ambient.mp4
+      - assets/portal-hub-gemini-softloop.mp4
       - assets/oaken-emporium-tree-shops.webp
       - scripts/test_oaken_hub.mjs
+      - scripts/verify_gemini_hub_media.py
       - .github/workflows/oaken-hub-qa.yml
   pull_request:
     branches: [main]
@@ -16,6 +18,7 @@ on:
       - index.html
       - oaken-emporium.html
       - scripts/test_oaken_hub.mjs
+      - scripts/verify_gemini_hub_media.py
       - .github/workflows/oaken-hub-qa.yml
 permissions:
   contents: read
@@ -38,8 +41,10 @@ jobs:
           test -s oaken-emporium.html
           test -s assets/portal-hub-gemini-poster.jpg
           test -s assets/portal-hub-gemini-ambient.mp4
+          test -s assets/portal-hub-gemini-softloop.mp4
           test -s assets/oaken-emporium-tree-shops.webp
-          # H.264 media file verified by local transcoding and browser HTTP response.
+          command -v ffprobe || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+          python3 scripts/verify_gemini_hub_media.py
       - name: Start local website and test
         run: |
           python3 -m http.server 8177 --bind 127.0.0.1 >/tmp/oaken-hub-server.log 2>&1 &
