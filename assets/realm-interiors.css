@@ -1,0 +1,143 @@
+/* Tree & Ember / Living Tree interiors — 2026-11-17.
+   Original portal artwork, private school and market implementations are preserved.
+   Standalone visitor rooms share Hub colors but keep distinct identities. */
+:root {
+  --realm-deep:#061217;--realm-wood:#241b18;--realm-moss:#2d463a;
+  --realm-cream:#f6ebd0;--realm-amber:#e6c888;--realm-teal:#82d8c8;
+}
+.branch.realm-route{overflow:auto!important;overscroll-behavior-y:contain;background:#07131b!important;color:var(--realm-cream)}
+.realm-route{--realm-shine:#87d9ce;--realm-bright:rgba(88,177,148,.20);--realm-shadow:rgba(29,54,43,.36)}
+.realm-route.moon{--realm-shine:#a9e9f8;--realm-bright:rgba(44,135,203,.19);--realm-shadow:rgba(25,36,82,.40)}
+.realm-route.photo{--realm-shine:#a6dcce;--realm-bright:rgba(73,145,164,.17);--realm-shadow:rgba(58,35,74,.34)}
+.realm-route.beasts{--realm-shine:#bbd3a1;--realm-bright:rgba(92,157,108,.17);--realm-shadow:rgba(55,45,42,.32)}
+.realm-route.music{--realm-shine:#e6c888;--realm-bright:rgba(192,123,62,.18);--realm-shadow:rgba(48,32,28,.46)}
+.realm-route::before{content:"";position:fixed;inset:-5%;z-index:0;pointer-events:none;opacity:.95;
+  background:
+   radial-gradient(ellipse at 50% 0%,var(--realm-bright),transparent 48%),
+   radial-gradient(ellipse at 20% 70%,rgba(16,95,77,.19),transparent 35%),
+   radial-gradient(ellipse at 81% 87%,var(--realm-shadow),transparent 36%),
+   repeating-linear-gradient(99deg,rgba(17,24,22,.28) 0 7px,transparent 7px 28px),
+   linear-gradient(130deg,#071b1d 0%,#111e1e 24%,#211a1a 49%,#0a2226 72%,#061217 100%);
+ animation:realm-ambient 17s ease-in-out infinite alternate}
+.realm-route::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+ background:
+   radial-gradient(circle at 12% 12%,#c3e9c7 0 1px,transparent 2px),
+   radial-gradient(circle at 87% 22%,#f0dba3 0 1px,transparent 2px),
+   radial-gradient(circle at 73% 76%,#acd9cf 0 1px,transparent 2px);
+ opacity:.27;background-size:310px 340px,370px 420px,420px 390px;
+ animation:realm-stars 20s linear infinite}
+.realm{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:max(20px,env(safe-area-inset-top)) clamp(16px,4vw,52px) max(70px,env(safe-area-inset-bottom));min-height:100%;isolation:isolate}
+.realm::before{content:"";position:absolute;z-index:-1;left:1%;right:1%;top:80px;min-height:660px;height:min(105vh,1070px);pointer-events:none;
+ background:
+   radial-gradient(ellipse at 49% 17%,rgba(42,94,75,.30),transparent 43%),
+   linear-gradient(90deg,rgba(10,23,22,.67),transparent 17%,transparent 83%,rgba(10,23,22,.67)),
+   repeating-radial-gradient(ellipse at 50% -88%,transparent 0 70px,rgba(104,79,54,.10) 72px 75px,transparent 78px 112px);
+ border:1px solid rgba(169,125,74,.16);border-radius:49% 49% 13% 13% / 28% 28% 5% 5%;
+ box-shadow:inset 0 22px 76px rgba(0,0,0,.35),0 0 60px rgba(0,0,0,.22)}
+.realm-top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;position:relative;z-index:4}
+.realm-back,.realm-route-link,.realm-primary-link,.realm-secondary-link{display:inline-flex;align-items:center;justify-content:center;text-align:center;min-height:46px;min-width:46px;
+ padding:.78rem 1.05rem;border:1px solid rgba(232,206,146,.52);border-radius:999px;
+ color:#ffebbc;background:linear-gradient(140deg,rgba(55,39,29,.95),rgba(13,36,35,.92));
+ box-shadow:inset 0 1px rgba(255,255,255,.09),0 7px 18px rgba(0,0,0,.2);
+ font:700 .86rem/1.2 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-decoration:none;
+ cursor:pointer;transition:border-color .18s,background-color .18s,box-shadow .18s;user-select:none}
+.realm-back:hover,.realm-route-link:hover,.realm-primary-link:hover,.realm-secondary-link:hover{border-color:#d8c993;box-shadow:0 0 20px rgba(119,208,178,.17)}
+.realm :is(a,button,input,summary,[tabindex]):focus-visible{outline:3px solid #ffe7a0;outline-offset:4px}
+.realm-brand{color:#c9d7bf;font:700 .70rem/1.3 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-transform:uppercase;letter-spacing:.17em}
+.realm-mast{text-align:center;max-width:750px;margin:clamp(24px,6vh,75px) auto clamp(24px,4vh,44px);padding:18px 10px;position:relative}
+.realm-mast::before{content:"";display:block;margin:0 auto 15px;width:140px;height:38px;border-radius:50%;
+ background:radial-gradient(ellipse,var(--realm-bright),transparent 75%);filter:blur(8px)}
+.realm-eyebrow{margin:0 0 12px;color:var(--realm-shine);font:800 .74rem/1.5 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-transform:uppercase;letter-spacing:.20em}
+.realm-mast h1{font:400 clamp(2.9rem,8.1vw,5.8rem)/.96 Georgia,"Times New Roman",serif;color:#f8ebc9;text-shadow:0 2px 25px #000,0 0 28px var(--realm-bright);margin:0 0 19px}
+.realm-lead{font:500 clamp(.98rem,2vw,1.15rem)/1.65 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#e4e6d7;max-width:65ch;margin:0 auto}
+.realm-table{position:relative;padding:clamp(22px,4vw,50px);border:1px solid rgba(232,197,134,.33);border-radius:48% 48% 28px 28px / 37px 37px 28px 28px;
+ background:
+   radial-gradient(ellipse at 50% 5%,rgba(133,95,51,.23),transparent 47%),
+   repeating-linear-gradient(92deg,transparent 0 23px,rgba(143,107,67,.055) 25px 29px),
+   linear-gradient(130deg,rgba(41,33,28,.98),rgba(22,31,29,.98));
+ box-shadow:0 24px 60px rgba(0,0,0,.39),inset 0 0 0 3px rgba(12,13,12,.4),inset 0 15px 25px rgba(178,133,78,.05)}
+.realm-table::after{content:"";position:absolute;pointer-events:none;inset:10px;border:1px solid rgba(179,139,82,.16);border-radius:inherit}
+.realm-table h2,.realm-gallery h2,.realm-side h2{font:400 clamp(1.55rem,3.7vw,2.35rem)/1.1 Georgia,serif;color:#f3deb2;margin:0 0 17px}
+.realm-books{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,2vw,20px);position:relative;z-index:2}
+.realm-book{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:220px;text-align:center;position:relative;padding:25px 18px;
+ border:2px solid rgba(215,187,121,.48);border-left:11px ridge rgba(193,150,83,.65);border-radius:8px 19px 18px 7px;
+ background:linear-gradient(110deg,rgba(114,82,49,.19),transparent 25%),linear-gradient(145deg,#163c37,#14252b 48%,#1d2426 85%);
+ box-shadow:7px 12px 0 -5px #090f15,14px 19px 23px rgba(0,0,0,.4),inset 0 0 0 4px rgba(205,180,120,.05);
+ color:#faebcf;cursor:pointer;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}
+.realm-book:nth-child(2n){background:linear-gradient(145deg,#233242,#121e37 60%,#302b31)}
+.realm-book:nth-child(3n){background:linear-gradient(145deg,#31422b,#10292e 60%,#262920)}
+.realm-book:hover,.realm-book:focus-visible{transform:translateY(-5px);box-shadow:8px 18px 0 -5px #090f15,13px 24px 30px rgba(0,0,0,.5),0 0 20px rgba(99,208,180,.15)}
+.realm-book-title{font:400 clamp(1.12rem,2.5vw,1.6rem)/1.14 Georgia,serif;text-wrap:balance}
+.realm-book-hint{display:block;margin-top:14px;font:700 .73rem/1.4 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#c8e3db}
+.realm-glyph{display:block;font:400 clamp(1.65rem,4vw,2.25rem)/1 Georgia,serif;color:var(--realm-shine);margin-bottom:16px;text-shadow:0 0 17px rgba(131,226,212,.28)}
+.realm-alcoves{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:23px}
+.realm-alcove{position:relative;border:1px solid rgba(201,172,116,.30);border-radius:25px;padding:clamp(20px,4vw,33px);
+ background:linear-gradient(150deg,rgba(11,38,37,.96),rgba(17,24,28,.96));
+ box-shadow:inset 0 0 25px rgba(2,15,13,.5),0 11px 35px rgba(0,0,0,.17)}
+.realm-alcove h2,.realm-alcove h3{font:400 clamp(1.25rem,3vw,1.8rem)/1.2 Georgia,serif;margin:0 0 13px;color:#f5dbac}
+.realm-alcove p,.realm-alcove li,.realm-table p{font:500 .95rem/1.65 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#dbe4db}
+.realm-alcove p:last-child{margin-bottom:0}
+.realm-feature{font:700 .68rem/1.4 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--realm-shine);margin-bottom:10px!important}
+.realm-field{display:block;font:700 .78rem/1.4 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#e7d5af;margin-bottom:8px}
+.realm-search{width:100%;min-height:48px;background:#08191d;color:#fff0d3;border:1px solid rgba(148,215,194,.67);border-radius:12px;padding:11px 14px;font:500 1rem/1.3 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.realm-search::placeholder{color:#adbaa9}
+.realm-catalog{padding:0;margin:15px 0 0;list-style:none;display:grid;gap:9px}
+.realm-catalog li{padding:12px 14px;border:1px solid rgba(141,185,149,.28);border-radius:11px;background:rgba(7,21,24,.75)}
+.realm-catalog li[hidden]{display:none}
+.realm-catalog strong{color:#f6e5ba}
+.realm-catalog small{display:block;margin-top:5px;color:#c1d4ce;font:500 .79rem/1.45 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.realm-empty{display:none;color:#f2dba6!important;font-weight:700!important}
+.realm-empty:not([hidden]){display:block}
+.realm-foot{margin:30px auto 0;padding:17px 0;border-top:1px solid rgba(160,183,163,.22);text-align:center;color:#c4d6ca;font:500 .8rem/1.45 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.realm-orbit{width:min(64vw,275px);height:min(64vw,275px);margin:5px auto 22px;position:relative;border-radius:50%;border:2px solid rgba(112,225,243,.70);
+ box-shadow:0 0 21px rgba(77,199,220,.27),inset 0 0 25px rgba(37,111,163,.22);background:radial-gradient(circle at 50% 52%,rgba(169,213,239,.18),rgba(23,55,86,.26) 42%,rgba(14,21,45,.13) 68%,transparent 70%)}
+.realm-orbit::before{content:"";position:absolute;inset:13%;border-radius:50%;border:1px solid rgba(177,214,241,.35);box-shadow:inset 0 0 23px rgba(110,219,234,.12)}
+.realm-orbit::after{content:"☾";position:absolute;inset:0;display:grid;place-items:center;font:normal clamp(4.8rem,15vw,8.8rem)/1 Georgia,serif;color:#d8e5e8;text-shadow:0 0 34px rgba(142,212,239,.65)}
+.realm-star-chart{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin:15px auto 28px;width:min(100%,330px);height:88px;align-items:center}
+.realm-star-chart i{display:block;width:5px;height:5px;border-radius:50%;background:#f8e8d3;box-shadow:0 0 9px 2px rgba(133,200,255,.44)}
+.realm-star-chart i:nth-child(2){transform:translateY(17px)}.realm-star-chart i:nth-child(3){transform:translateY(22px)}.realm-star-chart i:nth-child(4){transform:translateY(10px)}.realm-star-chart i:nth-child(5){transform:translateY(-7px)}.realm-star-chart i:nth-child(6){transform:translateY(-3px)}
+.realm-photo-frames{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.realm-photo-frame{min-height:230px;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;border:8px ridge rgba(133,96,56,.78);border-radius:5px;
+ background:linear-gradient(145deg,#0b2428,#14202a 58%,#27252c);box-shadow:0 18px 25px rgba(0,0,0,.37),inset 0 0 23px #000a}
+.realm-photo-frame::before{content:"";width:72%;height:3px;margin:auto;box-shadow:0 0 20px rgba(138,216,202,.16);background:linear-gradient(90deg,transparent,var(--realm-shine),transparent);opacity:.7}
+.realm-photo-frame strong{font:400 1.1rem/1.2 Georgia,serif;color:#f4e5be}
+.realm-photo-frame span{font:500 .76rem/1.45 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#c4d5cb;margin-top:7px}
+.realm-accordion{display:grid;gap:12px}
+.realm-accordion details{border:1px solid rgba(204,175,122,.35);background:rgba(12,35,37,.81);border-radius:14px;padding:0 20px}
+.realm-accordion summary{cursor:pointer;min-height:52px;padding:18px 0;font:400 clamp(1.15rem,2.7vw,1.45rem)/1.25 Georgia,serif;color:#f8e4bc;list-style:revert}
+.realm-accordion details[open]{border-color:rgba(152,222,191,.48)}
+.realm-accordion details p{color:#dfe4d9;font:500 .93rem/1.65 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.realm-link-row{display:flex;flex-wrap:wrap;align-items:center;gap:13px;margin-top:21px}
+.realm-quiet{color:#d1d2c7;font:500 .78rem/1.5 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+/* Carry the Hub's materials to existing approved, more developed rooms without replacing them. */
+.nook .nook-card{border-color:rgba(135,196,163,.30);box-shadow:inset 0 0 22px rgba(53,111,88,.07),0 12px 30px rgba(0,0,0,.24)}
+.nook .nook-back,.owls-school .owls-back{border-color:rgba(162,209,178,.51);background:linear-gradient(135deg,rgba(31,52,41,.93),rgba(23,25,28,.93))}
+.nook .nook-hero h1{color:#f5e4c2;text-shadow:0 0 19px rgba(77,173,156,.17)}
+.owls-school .owls-school-shell{border-top:1px solid rgba(112,189,161,.12)}
+@keyframes realm-ambient{0%{opacity:.78;transform:translateY(0)}100%{opacity:1;transform:translateY(-1.3%)}}
+@keyframes realm-stars{0%,100%{opacity:.21}45%{opacity:.42}}
+@media(max-width:780px){
+ .realm-books{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .realm-alcoves{grid-template-columns:1fr}
+ .realm-photo-frames{grid-template-columns:1fr 1fr}
+ .realm-book{min-height:185px}
+}
+@media(max-width:480px){
+ .realm-mast{margin:22px auto 26px;padding:7px 0}
+ .realm-mast h1{font-size:clamp(2.45rem,12vw,3.7rem)}
+ .realm-books{grid-template-columns:1fr 1fr;gap:10px}
+ .realm-book{min-height:166px;padding:16px 12px;border-left-width:7px}
+ .realm-glyph{font-size:1.5rem;margin-bottom:8px}
+ .realm-book-title{font-size:1.11rem}
+ .realm-book-hint{font-size:.67rem}
+ .realm-photo-frames{grid-template-columns:1fr}
+ .realm-photo-frame{min-height:175px}
+ .realm-top{flex-direction:row;align-items:center}
+ .realm-brand{font-size:.62rem}
+ .realm::before{left:0;right:0;min-height:620px;border-radius:43% 43% 12% 12%/18% 18% 7% 7%}
+}
+@media(prefers-reduced-motion:reduce){
+ .realm-route::before,.realm-route::after{animation:none!important;transform:none!important}
+ .realm-book,.realm-back,.realm-route-link,.realm-primary-link,.realm-secondary-link{transition:none!important}
+ .realm-book:hover{transform:none}
+}
