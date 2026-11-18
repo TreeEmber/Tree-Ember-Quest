@@ -32,6 +32,16 @@ try{
     if(background==='rgb(255, 255, 255)')throw Error('Light background in '+type);
     const dim=await realm.locator('.realm').evaluate(el=>({scroll:el.scrollWidth,client:el.clientWidth}));
     if(dim.scroll>dim.client+2)throw Error('Horizontal overflow in '+type+' '+JSON.stringify(dim));
+    if(['library','beasts','music'].includes(type)){
+      const expected=type==='music'?'heartwood-lounge-room-storyboard.webp':'living-library-room-storyboard.webp';
+      const source=await realm.evaluate(el=>getComputedStyle(el,'::before').backgroundImage);
+      if(!source.includes(expected))throw Error('Storyboard backdrop missing for '+type);
+      const img=await page.evaluate(async path=>{
+        const response=await fetch('assets/'+path);
+        return {ok:response.ok,contentType:response.headers.get('content-type'),bytes:(await response.arrayBuffer()).byteLength};
+      },expected);
+      if(!img.ok||img.bytes<100000)throw Error('Storyboard resource unavailable: '+expected);
+    }
     await page.screenshot({path:'qa-realm-'+type+'-'+width+'.png',fullPage:false});
   }
   await page.goto(base+'#living-library',{waitUntil:'domcontentloaded'});
