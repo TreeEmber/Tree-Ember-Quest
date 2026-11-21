@@ -1,0 +1,61 @@
+name: Tree & Ember — Basic Design Completion QA
+on:
+  push:
+    branches: [feature/site-basic-design-completion-20261121]
+    paths:
+      - index.html
+      - assets/world-expansion.css
+      - assets/world-expansion.js
+      - scripts/test_basic_design.mjs
+      - .github/workflows/basic-design-qa.yml
+  pull_request:
+    branches: [main]
+    paths:
+      - index.html
+      - assets/world-expansion.css
+      - assets/world-expansion.js
+      - scripts/test_basic_design.mjs
+      - .github/workflows/basic-design-qa.yml
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  visitor-journey:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser test dependencies
+        run: |
+          npm install --no-save playwright@1.56.0
+          npx playwright install --with-deps chromium
+      - name: Verify locked art and new assets
+        run: |
+          test -s index.html
+          test -s assets/world-expansion.css
+          test -s assets/world-expansion.js
+          test -s assets/portal-hub-gemini-softloop.mp4
+          test -s assets/portal-hub-gemini-poster.jpg
+          test -s assets/page1-briarlight-gate.mp4
+          test -s assets/page2-forest-journey.mp4
+          test -s assets/living-library-room-storyboard.webp
+          test -s assets/heartwood-lounge-room-storyboard.webp
+          test -s assets/moon-room-observatory-forest.webp
+          test -s oaken-emporium.html
+      - name: Test live-like local site at four breakpoints
+        run: |
+          python3 -m http.server 8177 --bind 127.0.0.1 >/tmp/tree-world-server.log 2>&1 &
+          sleep 2
+          node scripts/test_basic_design.mjs
+      - name: Save design screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tree-ember-basic-design-screenshots
+          path: qa-basic-*.png
+          if-no-files-found: ignore
