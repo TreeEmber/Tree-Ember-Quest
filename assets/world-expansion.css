@@ -1,0 +1,111 @@
+/* Tree & Ember 2026-11-21 | basic-design world completion.
+   Additive. The approved Gate, Forest Journey, six-door Hub, marketplace,
+   Nook forms and private Owl's Lessons remain unmodified. */
+:root{--te-world-cream:#f6e9d1;--te-world-gold:#e6bc76;--te-world-teal:#95e5d1;--te-world-ink:#07171a}
+.world-guide[hidden]{display:none!important}
+.world-guide{position:fixed;z-index:165;right:max(13px,env(safe-area-inset-right));bottom:max(13px,env(safe-area-inset-bottom));font:600 .87rem/1.4 system-ui,-apple-system,sans-serif;color:var(--te-world-cream)}
+.world-guide>summary{list-style:none;display:flex;align-items:center;gap:9px;min-height:49px;max-width:max-content;margin-left:auto;padding:12px 19px;border-radius:45px;border:1px solid rgba(237,205,139,.68);
+ color:#fff4d4;background:linear-gradient(135deg,#1c3933,#201d27);box-shadow:0 8px 28px #000b,0 0 22px #347c6d33;cursor:pointer;user-select:none}
+.world-guide>summary::-webkit-details-marker{display:none}
+.world-guide>summary::before{content:"✦";color:#edc78c;font-size:1rem}
+.world-guide>summary:focus-visible,.world-guide a:focus-visible,.world-portal-link:focus-visible,.world-route summary:focus-visible{outline:3px solid #ffdea0;outline-offset:3px}
+.world-guide[open]>summary{border-color:#f1d7a5;background:linear-gradient(145deg,#29483c,#2b2630)}
+.world-guide__panel{position:absolute;bottom:calc(100% + 12px);right:0;width:min(376px,calc(100vw - 26px));max-height:min(75dvh,690px);overflow-y:auto;overscroll-behavior:contain;border:2px ridge rgba(205,158,96,.7);border-radius:28px 28px 15px 15px;
+background:radial-gradient(ellipse at 65% 0%,rgba(49,119,98,.33),transparent 57%),
+repeating-linear-gradient(91deg,rgba(124,84,48,.08) 0 3px,transparent 3px 42px),linear-gradient(135deg,#152624,#1e1c1f 80%);
+box-shadow:0 25px 65px #000d,inset 0 0 0 4px #110f10;padding:22px 18px 18px}
+.world-guide__heading{font:400 1.6rem/1.15 Georgia,serif;color:#f9e6be;margin:0 0 7px;text-align:center}
+.world-guide__subtitle{font:500 .81rem/1.5 system-ui,sans-serif;text-align:center;color:#cfdfd3;margin:0 auto 13px;max-width:33ch}
+.world-guide__group{margin-top:14px;border-top:1px solid #a988564d;padding-top:13px}
+.world-guide__group p{font:700 .65rem/1.3 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.18em;color:#97d7c4;margin:0 0 7px}
+.world-guide__links{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.world-guide__links a{display:flex;min-width:0;align-items:center;min-height:44px;padding:9px 10px;border-radius:10px;text-decoration:none;color:#f1e8d1;border:1px solid #9bcab13c;background:#0717148c;font:600 .77rem/1.3 system-ui,sans-serif}
+.world-guide__links a:hover,.world-guide__links a[aria-current="page"]{background:#25463d;border-color:#addcc4}
+.world-guide__aside{font:500 .69rem/1.5 system-ui,sans-serif;color:#c2cbbd;text-align:center;margin:16px 0 0}
+@media(max-width:380px){.world-guide__links{grid-template-columns:1fr}.world-guide__panel{max-height:70dvh}.world-guide__heading{font-size:1.35rem}}
+
+/* Every new destination is a chamber in the same living-tree world. */
+.route.world-route{background:#071519!important;overflow-y:auto!important;overflow-x:hidden!important;overscroll-behavior-y:contain}
+.world-route{--world-glow:#85d2ad;--world-gold:#e4be79;--world-top:#06171b;--world-bottom:#171e21;color:#f7ebd1}
+.world-route.journeys{--world-glow:#97dbde;--world-gold:#dfbd89;--world-top:#091b29;--world-bottom:#121e22}
+.world-route.herbalist{--world-glow:#a8e5ab;--world-gold:#d7bd7e;--world-top:#071a19;--world-bottom:#13241c}
+.world-route.cards{--world-glow:#92d6ca;--world-gold:#edcb8a;--world-top:#111b26;--world-bottom:#221b20}
+.world-route.guides{--world-glow:#a7c9e3;--world-gold:#edc578;--world-top:#121724;--world-bottom:#241a21}
+.world-route.story{--world-glow:#94dcc6;--world-gold:#edcb99;--world-top:#0a1720;--world-bottom:#231f22}
+.branch.realm-route.world-route::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:
+radial-gradient(ellipse at 49% 8%,color-mix(in srgb,var(--world-glow) 22%,transparent),transparent 57%),
+radial-gradient(ellipse at 78% 55%,rgba(25,88,73,.23),transparent 41%),
+repeating-radial-gradient(ellipse at 50% -80%,transparent 0 68px,rgba(147,100,55,.12) 70px 74px,transparent 76px 125px),
+linear-gradient(150deg,var(--world-top),var(--world-bottom) 88%)}
+.branch.realm-route.world-route::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.6;background:
+radial-gradient(1px 2px at 16% 18%,#b5f5ef,transparent 95%),
+radial-gradient(1px 2px at 87% 31%,#fce0a4,transparent 95%),
+radial-gradient(2px 3px at 73% 13%,#abf1d6,transparent 95%),
+radial-gradient(1px 2px at 32% 75%,#a1dce0,transparent 95%),
+linear-gradient(90deg,#070d14b9,transparent 15% 85%,#080c10bd)}
+.world-route .realm{z-index:2}
+.world-route .realm::before{border-radius:48% 48% 14px 14px/24% 24% 10px 10px;border:1px solid #cfad7842}
+.world-route .realm-mast{margin-top:clamp(24px,5vh,60px)}
+.world-route .realm-mast h1{font-size:clamp(2.9rem,7vw,5.9rem)}
+.world-route .realm-lead{max-width:68ch}
+.world-route .realm-top{gap:14px}
+.world-orbit-mark{position:relative;width:min(270px,60vw);aspect-ratio:1;margin:12px auto 25px;display:grid;place-items:center;border:2px solid #d1ac716e;border-radius:50%;box-shadow:0 0 0 15px #63867a18,inset 0 0 70px #4368565c,0 0 45px #60978b40;
+background:radial-gradient(ellipse at center,#31544a7c,transparent 68%),repeating-radial-gradient(circle at center,transparent 0 22px,#b8a47f39 24px 25px,transparent 27px 46px)}
+.world-orbit-mark::before,.world-orbit-mark::after{content:"✦";position:absolute;left:50%;top:-16px;color:#e8ce9a;font:24px Georgia,serif}
+.world-orbit-mark::after{top:auto;bottom:-13px;left:calc(50% - 4px);font-size:18px}
+.world-orbit-mark span{font:normal clamp(5rem,12vw,7rem)/1 Georgia,serif;color:#e9d49f;text-shadow:0 0 20px #ecba71c0,0 0 38px #6ed7ba63}
+.world-orbit-mark.herb span{color:#a9e6bd}.world-orbit-mark.cards-emblem span{color:#f5cc8b}.world-orbit-mark.guide-emblem span{color:#e6d7bc}
+.world-arch{position:relative;overflow:hidden;margin:0 auto clamp(22px,3vw,38px);min-height:clamp(210px,32vw,345px);padding:clamp(28px,5vw,56px) clamp(22px,5vw,65px);display:flex;align-items:flex-end;
+border:2px ridge #b59660a3;border-radius:47% 47% 24px 24px / 47% 47% 23px 23px;
+box-shadow:inset 0 0 0 7px #121b1999,inset 0 0 60px #07110cb9,0 22px 50px #0008;
+background:
+radial-gradient(circle at 50% 20%,color-mix(in srgb,var(--world-glow) 42%,transparent),transparent 17%),
+radial-gradient(circle at 49% 69%,#c59b5366,transparent 27%),
+repeating-conic-gradient(from 20deg at 50% 110%,#0a1c1c 0 4deg,#254438 5deg 7deg,#0c2221 8deg 11deg),
+linear-gradient(var(--world-top),var(--world-bottom))}
+.world-arch::before{content:"";position:absolute;inset:9px;border:2px solid #9e86576b;border-radius:inherit;pointer-events:none}
+.world-arch::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,#0000 10%,#02100d17 55%,#06100deb)}
+.world-arch__copy{position:relative;z-index:2;margin:0 auto;text-align:center;max-width:65ch}
+.world-arch__copy strong{display:block;font:400 clamp(1.8rem,4vw,3.1rem)/1.08 Georgia,serif;color:#fff2d3;text-shadow:0 2px 18px #000}
+.world-arch__copy span{display:block;font:500 .92rem/1.6 system-ui,sans-serif;color:#e4f0e6;max-width:54ch;margin:12px auto 0}
+.world-wayfinder{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,21px);margin-top:clamp(18px,4vw,38px)}
+.world-wayfinder>a,.world-feature{position:relative;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:7px;padding:clamp(19px,3vw,29px);border:1px solid #d6b78966;border-radius:18px 18px 29px 17px;color:#f7e9d1;text-decoration:none;
+background:radial-gradient(ellipse at 92% 0%,color-mix(in srgb,var(--world-glow) 14%,transparent),transparent 45%),
+linear-gradient(125deg,#1b2c2aeb,#182025f5 70%);box-shadow:inset 0 0 0 4px #14181b69,0 15px 33px #0006}
+.world-wayfinder>a:hover{border-color:#f8dbad;background-color:#24483a}
+.world-wayfinder a span,.world-feature span{font:700 .66rem/1.4 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--world-glow)}
+.world-wayfinder a strong,.world-feature strong{font:400 clamp(1.2rem,2.5vw,1.7rem)/1.2 Georgia,serif;color:#f8e6c2}
+.world-wayfinder a small,.world-feature small{font:500 .87rem/1.5 system-ui,sans-serif;color:#dce7dc}
+.world-wayfinder a::after{content:"↗";position:absolute;right:17px;top:15px;color:#e9c987;font-size:1.3rem}
+.world-route .realm-table{margin-bottom:26px}
+.world-route .realm-table p,.world-route .realm-table li{color:#e7e3d8;font:500 .99rem/1.65 system-ui,sans-serif}
+.world-note{margin:22px auto 0;padding:16px 20px;border-left:3px solid #d9bc7a;background:#101b1ccc;color:#e7e5d7;font:500 .86rem/1.6 system-ui,sans-serif;max-width:76ch}
+.world-characters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.world-character{position:relative;min-height:195px;padding:24px 18px 17px;border-radius:42% 42% 15px 15px/24% 24% 12px 12px;border:1px solid #bba07277;
+background:radial-gradient(ellipse at 50% 0%,#4a7f765e,transparent 60%),linear-gradient(158deg,#162e30,#221e29);box-shadow:inset 0 0 0 4px #0b161b85}
+.world-character h3{color:#fbe5b9;font:400 clamp(1.3rem,2vw,1.7rem) Georgia,serif;margin:0 0 6px}
+.world-character p{color:#dfe5d9;font:500 .88rem/1.5 system-ui,sans-serif;margin:0}
+.world-character .world-character-role{display:block;font:700 .7rem/1.3 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.09em;color:#a4dccc;margin:0 0 12px}
+.world-character::before{content:"✦";display:block;width:35px;height:35px;color:#f5cf91;font:30px/1 Georgia,serif;margin:0 0 14px;text-shadow:0 0 17px #c7a771}
+.world-character.ember::before{content:"✧";color:#eebc8b}
+.world-cards-showcase{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:18px 0}
+.world-card-cover{position:relative;display:flex;min-height:210px;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:15px;
+border-radius:13px;border:2px solid #cbad779e;box-shadow:inset 0 0 0 5px #0a1c1ec9,0 12px 17px #0008;background:
+radial-gradient(ellipse at 50% 28%,#5f928280,transparent 60%),repeating-radial-gradient(circle at 50% 0%,#243a3a 0 8px,#19282b 10px 21px)}
+.world-card-cover span{font-size:2rem;color:#f8d18b}
+.world-card-cover strong{font:400 clamp(1rem,2vw,1.45rem) Georgia,serif;color:#ffedc4}
+.world-card-cover small{font:600 .65rem/1.4 system-ui,sans-serif;color:#c6e4dc}
+.world-card-disclaimer{font:500 .78rem/1.5 system-ui,sans-serif;text-align:center;color:#cfe1d9;margin:14px 0 0}
+.world-arch+.realm-table{margin-top:0}
+.world-route .realm-link-row a,.world-route .world-portal-link{display:inline-flex;align-items:center;min-height:44px;border-radius:50px;border:1px solid #dbb87c83;background:#1b3935;color:#fff0c7;padding:11px 20px;text-decoration:none;font:700 .84rem system-ui,sans-serif}
+.world-route .world-portal-link:hover{background:#2b5146}
+.world-route a:focus-visible{outline:3px solid #ffdea0;outline-offset:3px}
+.world-route .realm-foot{text-align:center}
+@media(max-width:760px){.world-characters{grid-template-columns:repeat(2,minmax(0,1fr))}.world-arch{min-height:230px}.world-wayfinder{grid-template-columns:1fr}.world-cards-showcase{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:475px){.world-characters{grid-template-columns:1fr}.world-card-cover{min-height:148px;padding:10px}.world-cards-showcase{gap:7px}.world-card-cover small{font-size:.58rem}.world-card-cover strong{font-size:.95rem}.world-guide{right:12px;bottom:max(12px,env(safe-area-inset-bottom))}}
+@media(prefers-reduced-motion:reduce){.world-guide *, .world-route *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+/* The Photography room is designed like an enchanted gallery, not fake photography. */
+.photo .realm-gallery{background:radial-gradient(ellipse at center top,#5d61501f,transparent 50%),repeating-linear-gradient(90deg,#3c2b1f26 0 14px,#111d1d26 17px 30px),linear-gradient(125deg,#1b2928,#211b23)}
+.photo .realm-photo-frame{position:relative;background:radial-gradient(ellipse at 46% 41%,#4c79654c,transparent 42%),linear-gradient(145deg,#1e3534,#111b25 60%,#211b22);border-color:#b49b6d;box-shadow:0 18px 25px #0009,inset 0 0 0 8px #080e11,inset 0 0 50px #1e676043}
+.photo .realm-photo-frame::before{content:"✧";display:grid;place-items:center;width:80px;height:80px;margin:auto;color:#cdded1;font:40px Georgia,serif;border:1px solid #a5d4be66;border-radius:50%;background:radial-gradient(circle,#37766566,transparent 70%);box-shadow:0 0 24px #8be7c321}
+.photo .realm-photo-frame strong{font-size:1.18rem}
