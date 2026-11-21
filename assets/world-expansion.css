@@ -168,6 +168,8 @@ radial-gradient(ellipse at 50% 28%,#5f928280,transparent 60%),repeating-radial-g
     justify-content:center;
     gap:0;
     width:58px;
+    min-width:58px;
+    max-width:none;
     min-height:52px;
     margin:0;
     padding:5px 4px;
