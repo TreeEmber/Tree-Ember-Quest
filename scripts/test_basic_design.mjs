@@ -22,6 +22,26 @@ try {
   assert.equal(await page.locator('#teHubVideo source').getAttribute('src'),'assets/portal-hub-gemini-softloop.mp4','original video retained');
   assert.equal(await page.locator('a.h-market').getAttribute('href'),'oaken-emporium.html','market entry retained');
   assert.equal(await page.locator('.world-guide').isVisible(),true,'world map visible from Hub');
+  // Mobile Photography must not disappear at the bottom or be covered by
+  // the sticky world-map control. Preserve the six original Hub hotspots.
+  const photoBeacon=page.locator('.hub-photo-beacon');
+  if(width<=620){
+   assert.equal(await photoBeacon.isVisible(),true,'Photography label visible on phones');
+   assert.equal(await photoBeacon.getAttribute('href'),'#embers-photography');
+   const badge=await photoBeacon.boundingBox();
+   const photo=await page.locator('.hub .h-photo').boundingBox();
+   const map=await page.locator('#tree-world-guide > summary').boundingBox();
+   assert.ok(badge&&map&&photo,'photo and map positions available');
+   assert.ok(badge.y+badge.height<height-42,'Photography is visible above the mobile browser toolbar');
+   assert.ok(badge.width>=110&&badge.height>=44,'Photography has an easy-to-tap named target');
+   assert.ok(map.x+map.width<photo.x,'world map no longer covers Photography');
+   await photoBeacon.click();
+   await page.waitForFunction(()=>document.getElementById('r-photo')?.checked);
+   await page.goto(base+'#portal-hub',{waitUntil:'domcontentloaded'});
+   await page.waitForFunction(()=>document.getElementById('r-hub')?.checked);
+  }else{
+   assert.equal(await photoBeacon.isVisible(),false,'extra Photography wayfinder is mobile only');
+  }
   const summary=page.locator('#tree-world-guide summary');
   await summary.focus();
   await page.keyboard.press('Enter');
