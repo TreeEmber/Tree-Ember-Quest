@@ -61,6 +61,14 @@ try {
   assert.equal(await page.locator('.owls-enter').getAttribute('href'),'https://homeschool.treeandemberco.com/','private school still separate');
   await page.goto(base+'#embers-photography',{waitUntil:'domcontentloaded'});
   assert.equal(await page.locator('.photo .realm-photo-frame').count(),3,'no invented gallery content');
+  // Exercise the actual center of every hotspot with the persistent world-map
+  // control present, guarding against mobile overlays blocking locked doors.
+  for(const [hotspot,radio] of [['h-nook','r-nook'],['h-moon','r-moon'],['h-library','r-library'],['h-homeschool','r-homeschool'],['h-photo','r-photo']]){
+   await page.goto(base+'#portal-hub',{waitUntil:'domcontentloaded'});
+   await page.waitForFunction(()=>document.getElementById('r-hub')?.checked);
+   await page.locator('.hub-hit.'+hotspot).click({timeout:9000});
+   await page.waitForFunction(id=>document.getElementById(id)?.checked,radio);
+  }
   await page.goto(base+'#portal-hub',{waitUntil:'domcontentloaded'});
   await page.locator('a.h-market').click();
   await page.waitForURL('**/oaken-emporium.html');
