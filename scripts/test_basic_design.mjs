@@ -35,6 +35,7 @@ try {
    assert.ok(badge.y+badge.height<height-42,'Photography is visible above the mobile browser toolbar');
    assert.ok(badge.width>=110&&badge.height>=44,'Photography has an easy-to-tap named target');
    assert.ok(map.x+map.width<photo.x,'world map no longer covers Photography');
+   await page.screenshot({path:'qa-basic-photography-hub-'+width+'.png',fullPage:false});
    await photoBeacon.click();
    await page.waitForFunction(()=>document.getElementById('r-photo')?.checked);
    await page.goto(base+'#portal-hub',{waitUntil:'domcontentloaded'});
