@@ -32,12 +32,12 @@ box-shadow:0 25px 65px #000d,inset 0 0 0 4px #110f10;padding:22px 18px 18px}
 .world-route.cards{--world-glow:#92d6ca;--world-gold:#edcb8a;--world-top:#111b26;--world-bottom:#221b20}
 .world-route.guides{--world-glow:#a7c9e3;--world-gold:#edc578;--world-top:#121724;--world-bottom:#241a21}
 .world-route.story{--world-glow:#94dcc6;--world-gold:#edcb99;--world-top:#0a1720;--world-bottom:#231f22}
-.world-route::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:
+.branch.realm-route.world-route::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:
 radial-gradient(ellipse at 49% 8%,color-mix(in srgb,var(--world-glow) 22%,transparent),transparent 57%),
 radial-gradient(ellipse at 78% 55%,rgba(25,88,73,.23),transparent 41%),
 repeating-radial-gradient(ellipse at 50% -80%,transparent 0 68px,rgba(147,100,55,.12) 70px 74px,transparent 76px 125px),
 linear-gradient(150deg,var(--world-top),var(--world-bottom) 88%)}
-.world-route::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.6;background:
+.branch.realm-route.world-route::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.6;background:
 radial-gradient(1px 2px at 16% 18%,#b5f5ef,transparent 95%),
 radial-gradient(1px 2px at 87% 31%,#fce0a4,transparent 95%),
 radial-gradient(2px 3px at 73% 13%,#abf1d6,transparent 95%),
