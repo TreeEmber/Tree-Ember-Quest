@@ -13,7 +13,9 @@ body{overflow:hidden}
 #r-gate:checked~.gate,#r-walk:checked~.walk,#r-hub:checked~.hub,
 #r-library:checked~.library,#r-moon:checked~.moon,#r-nook:checked~.nook,#r-market:checked~.market,
 #r-beasts:checked~.beasts,#r-homeschool:checked~.homeschool,
-#r-music:checked~.music,#r-photo:checked~.photo{display:block}
+#r-music:checked~.music,#r-photo:checked~.photo,
+#r-journeys:checked~.journeys,#r-herbalist:checked~.herbalist,
+#r-cards:checked~.cards,#r-guides:checked~.guides,#r-story:checked~.story{display:block}
 label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
 
 /* PORTAL LANDING — persistent visible skip control */
@@ -3449,7 +3451,9 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
    Briarlight Gate and Forest Journey originals stay untouched. */
 </style>
 <link rel="stylesheet" href="assets/realm-interiors.css">
+<link rel="stylesheet" href="assets/world-expansion.css">
 <script defer src="assets/realm-interiors.js"></script>
+<script defer src="assets/world-expansion.js"></script>
 </head>
 <body>
 <input class="state" type="radio" name="r" id="r-gate" checked>
@@ -3463,6 +3467,11 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
 <input class="state" type="radio" name="r" id="r-homeschool">
 <input class="state" type="radio" name="r" id="r-music">
 <input class="state" type="radio" name="r" id="r-photo">
+<input class="state" type="radio" name="r" id="r-journeys">
+<input class="state" type="radio" name="r" id="r-herbalist">
+<input class="state" type="radio" name="r" id="r-cards">
+<input class="state" type="radio" name="r" id="r-guides">
+<input class="state" type="radio" name="r" id="r-story">
 
 
 
@@ -3520,7 +3529,7 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
       <p class="realm-lead">Inside this ancient hollow, books are doorways. Step toward wild places, old stories, the stars, and the discoveries waiting just outside your door.</p>
     </header>
     <figure class="realm-hero-scene" aria-label="The Living Library storyboard environment">
-      <img src="assets/living-library-room-storyboard.webp" alt="Inside an ancient living tree, a fox guide carries a lantern through a multi-level library of book-filled chambers, bridges, fairy lights, and deep blue-green woodland glow." loading="lazy" width="1179" height="759">
+      <img src="assets/living-library-room-storyboard.webp" alt="Storyboard view of a multilevel library carved into an ancient living tree, with book-filled chambers, bridges, fairy lights and a deep blue-green woodland glow." loading="lazy" width="1179" height="759">
       <figcaption>An enchanted library carved into the living tree. Explore the books below to find your next path.</figcaption>
     </figure>
     <section class="realm-table" aria-labelledby="living-table-heading">
@@ -3533,6 +3542,10 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
         <a class="realm-book" href="#library-living-legends"><span class="realm-glyph" aria-hidden="true">✺</span><span class="realm-book-title">Living Legends</span><span class="realm-book-hint">Ancient lineages</span></a>
         <a class="realm-book" href="#library-dew-web"><span class="realm-glyph" aria-hidden="true">✦</span><span class="realm-book-title">Dew Web</span><span class="realm-book-hint">A featured discovery</span></a>
         <label class="realm-book realm-route-link" for="r-music" role="button" tabindex="0" aria-label="Open Heartwood Lounge and Music Studio"><span class="realm-glyph" aria-hidden="true">♫</span><span class="realm-book-title">Heartwood Lounge</span><span class="realm-book-hint">Visit the music room</span></label>
+        <a class="realm-book" href="#herbalist"><span class="realm-glyph" aria-hidden="true">❧</span><span class="realm-book-title">The Herbalist</span><span class="realm-book-hint">Enter the conservatory</span></a>
+        <a class="realm-book" href="#journeys"><span class="realm-glyph" aria-hidden="true">✧</span><span class="realm-book-title">Journeys</span><span class="realm-book-hint">Follow the wider world</span></a>
+        <a class="realm-book" href="#portal-keys"><span class="realm-glyph" aria-hidden="true">✦</span><span class="realm-book-title">Discovery Cards</span><span class="realm-book-hint">Explore Portal Keys</span></a>
+        <a class="realm-book" href="#guide-buddies"><span class="realm-glyph" aria-hidden="true">☾</span><span class="realm-book-title">Guide Buddies</span><span class="realm-book-hint">Meet your companions</span></a>
       </div>
     </section>
     <div class="realm-alcoves">
@@ -4239,6 +4252,136 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
   </main>
 </section>
 
+
+<!-- Additional visitor rooms are connected THROUGH the approved Library and world map.
+     They do not add or move any of the six locked Portal Hub hotspots. -->
+<section class="route branch realm-route world-route journeys" aria-labelledby="journeys-heading">
+  <main class="realm">
+    <div class="realm-top"><a class="realm-back world-portal-link" href="#living-library">← The Living Library</a><span class="realm-brand">Tree &amp; Ember · Beyond the roots</span></div>
+    <header class="realm-mast"><p class="realm-eyebrow">Every path holds a story</p><h1 id="journeys-heading">Journeys</h1><p class="realm-lead">From hidden woodlands to distant shores, follow the wonder of real places, their wildlife, the people who call them home, and the stories carried between them.</p></header>
+    <div class="world-arch" role="img" aria-label="Illustrative stone and living-root archway illuminated by moonlit teal and warm golden forest light">
+      <div class="world-arch__copy"><strong>Beyond the last familiar tree</strong><span>Take the long way. Watch the changing light. Discover a world larger than a map.</span></div>
+    </div>
+    <section class="realm-table" aria-labelledby="journeys-paths"><h2 id="journeys-paths">Choose a path</h2>
+      <div class="world-wayfinder">
+        <a href="#embers-photography"><span>Field journal</span><strong>Moments from the journey</strong><small>Step into Ember’s Photography, where approved original images will tell the stories.</small></a>
+        <a href="#living-library"><span>Field discoveries</span><strong>Wild places, living lessons</strong><small>Trace natural history and habitats back through the Living Library.</small></a>
+      </div>
+      <p class="world-note">Journeys is the designed entrance to future location guides and travel stories. No unverified itineraries, bookings, or destination photography are presented as finished.</p>
+    </section>
+    <footer class="realm-foot">The best trails are the ones that leave room for wonder.</footer>
+  </main>
+</section>
+
+<section class="route branch realm-route world-route herbalist" aria-labelledby="herbalist-heading">
+  <main class="realm">
+    <div class="realm-top"><a class="realm-back world-portal-link" href="#living-library">← The Living Library</a><span class="realm-brand">Tree &amp; Ember · The botanical conservatory</span></div>
+    <header class="realm-mast"><p class="realm-eyebrow">The forest has a thousand quiet teachers</p><h1 id="herbalist-heading">The Herbalist</h1><p class="realm-lead">Inside a green chamber of the ancient tree, roots, leaves, and human traditions meet careful observation, botany, and responsible stewardship.</p></header>
+    <div class="world-orbit-mark herb" aria-hidden="true"><span>❧</span></div>
+    <div class="world-arch" role="img" aria-label="Symbolic leafy botanical chamber within living tree roots, illuminated in emerald and amber">
+      <div class="world-arch__copy"><strong>Learn the language of leaves</strong><span>Observe first. Identify with care. Honor the difference between history, tradition, and evidence.</span></div>
+    </div>
+    <section class="realm-table" aria-labelledby="herbalist-paths"><h2 id="herbalist-paths">The conservatory shelves</h2>
+      <div class="realm-accordion">
+        <details><summary>Growing &amp; tending</summary><p>From a windowsill pot to a garden of native plants, the growing library is being organized around seasons, soils, habitat and good care.</p></details>
+        <details><summary>Field observation</summary><p>Look closely at leaves, stems, flowers and growing conditions. A field note is a beginning, not a positive plant identification.</p></details>
+        <details><summary>Traditions &amp; careful research</summary><p>Historical and cultural herbal uses will be presented with attribution. Medical claims, contraindications and animal safety require separate source verification before release.</p></details>
+      </div>
+      <p class="world-note">This is a public room design, not a plant-identification service or medical handbook. Practical preparation, ingestion and remedy instructions will stay unpublished until safety review is complete.</p>
+      <div class="realm-link-row"><a class="world-portal-link" href="#living-library">Return to the Library shelves</a></div>
+    </section>
+    <footer class="realm-foot">A little knowledge grows into something extraordinary.</footer>
+  </main>
+</section>
+
+<section class="route branch realm-route world-route cards" aria-labelledby="keys-heading">
+  <main class="realm">
+    <div class="realm-top"><a class="realm-back world-portal-link" href="#living-library">← The Living Library</a><span class="realm-brand">Tree &amp; Ember · Discovery Vault</span></div>
+    <header class="realm-mast"><p class="realm-eyebrow">A little card can open a very large world</p><h1 id="keys-heading">Discovery Cards &amp; Portal Keys</h1><p class="realm-lead">Collect original moments from nature, follow clues into the Library, and eventually unlock stories, Guide Buddy encounters and hidden corners of Tree &amp; Ember.</p></header>
+    <div class="world-orbit-mark cards-emblem" aria-hidden="true"><span>✦</span></div>
+    <section class="realm-table" aria-labelledby="keys-first"><h2 id="keys-first">The first collection</h2>
+      <p>These are decorative category markers—not finished trading cards or substitutes for original photographs. The real card fronts are reserved for founder-approved photos; special foil and die-cut treatments remain separate designs.</p>
+      <div class="world-cards-showcase" aria-label="Three concept category plaques">
+        <div class="world-card-cover"><span aria-hidden="true">✧</span><strong>Forest &amp; Web</strong><small>Field discoveries</small></div>
+        <div class="world-card-cover"><span aria-hidden="true">❧</span><strong>Flowers &amp; Lore</strong><small>Stories in bloom</small></div>
+        <div class="world-card-cover"><span aria-hidden="true">☾</span><strong>Ancient Waters</strong><small>Living legends</small></div>
+      </div>
+      <div class="world-wayfinder">
+        <a href="#living-library"><span>Explore</span><strong>Follow a card into the Library</strong><small>Browse the first visible learning shelves and featured Dew Web discovery.</small></a>
+        <a href="#guide-buddies"><span>Companions</span><strong>Meet the Guide Buddies</strong><small>Learn who may accompany you when the future unlock system is ready.</small></a>
+      </div>
+      <p class="world-note">The QR scanning, inventory, collectible rarity, account unlocks and rewards are planned functionality—not active features. No card purchases or sign-ins are offered here.</p>
+    </section>
+    <footer class="realm-foot">Every discovery begins somewhere.</footer>
+  </main>
+</section>
+
+<section class="route branch realm-route world-route guides" aria-labelledby="guides-heading">
+  <main class="realm">
+    <div class="realm-top"><a class="realm-back world-portal-link" href="#living-library">← The Living Library</a><span class="realm-brand">Tree &amp; Ember · Companions of the living world</span></div>
+    <header class="realm-mast"><p class="realm-eyebrow">They know the paths. Mostly.</p><h1 id="guides-heading">Meet the Guide Buddies</h1><p class="realm-lead">Six original companions have their own quirks, discoveries and secrets. They belong to the whole Tree &amp; Ember world—not only the Library—and each helps in different places.</p></header>
+    <div class="world-orbit-mark guide-emblem" aria-hidden="true"><span>✧</span></div>
+    <section class="realm-table" aria-labelledby="guides-friends"><h2 id="guides-friends">A gathering of curious friends</h2>
+      <div class="world-characters">
+        <article class="world-character"><span class="world-character-role">Trails &amp; wayfinding</span><h3>Lantern Fox</h3><p>A clever explorer with four paws on the ground and a magical lantern floating nearby. Occasionally he’s confidently lost.</p></article>
+        <article class="world-character"><span class="world-character-role">Forgotten treasures</span><h3>Moss Mop</h3><p>A cheerful little finder of lost things, often bringing half the forest along in the form of leaves.</p></article>
+        <article class="world-character"><span class="world-character-role">Nighttime secrets</span><h3>Moon Moth</h3><p>Gentle and wonderfully distractible. Every twinkle is another invitation to investigate.</p></article>
+        <article class="world-character"><span class="world-character-role">Wetlands &amp; wildlife</span><h3>Bog Gator</h3><p>A marshland naturalist who delivers even simple advice with magnificent dramatic flair.</p></article>
+        <article class="world-character"><span class="world-character-role">Tiny clues</span><h3>Web Wink</h3><p>An observant spider with an eye for extraordinary details—and a little artistic pride.</p></article>
+        <article class="world-character"><span class="world-character-role">Coastal stories</span><h3>Tide Beak</h3><p>A collector of shore-side wonders, tales and curious objects that might fit in a satchel.</p></article>
+      </div>
+      <p class="world-note">The original Buddy illustrations and motion rigs remain protected while final animation and accessibility work continue. These profiles introduce the cast; they are not working AI conversations or unlockable characters yet.</p>
+      <div class="realm-link-row"><a class="world-portal-link" href="#portal-keys">How the future Portal Keys connect</a></div>
+    </section>
+    <section class="realm-table" aria-labelledby="ember-heading">
+      <h2 id="ember-heading">And then there’s Ember…</h2><p>Our small dark dragon with fiery orange wings is part of the Tree &amp; Ember story, too. Ember is a distinct companion, not a replacement for one of the six original Guide Buddies.</p>
+    </section>
+    <footer class="realm-foot">There’s more than one way to find a path home.</footer>
+  </main>
+</section>
+
+<section class="route branch realm-route world-route story" aria-labelledby="story-heading">
+  <main class="realm">
+    <div class="realm-top"><a class="realm-back world-portal-link" href="#portal-hub">← Back to the Hub</a><span class="realm-brand">Tree &amp; Ember · From one seed</span></div>
+    <header class="realm-mast"><p class="realm-eyebrow">An invitation to wonder</p><h1 id="story-heading">The Story of Tree &amp; Ember</h1><p class="realm-lead">A single practical guide to herbs grew into a Living Library, then into a world where science, stories, original photography and creativity can share the same tree.</p></header>
+    <div class="world-orbit-mark" aria-hidden="true"><span>❦</span></div>
+    <div class="world-arch" role="img" aria-label="An imagined glowing ancient tree arch, representing how the different Tree and Ember spaces grow from one root">
+      <div class="world-arch__copy"><strong>Rooted in knowledge. Guided by wonder.</strong><span>A living place for those who love wild places, old stories, curious discoveries and making things with meaning.</span></div>
+    </div>
+    <section class="realm-table" aria-labelledby="story-branches"><h2 id="story-branches">One tree. Many ways to explore.</h2>
+      <p>Core Living Library learning is intended to remain free. Natural history and scientific evidence are distinguished from folklore, tradition, spiritual belief and imagined stories. Briarbridge Market supports the wider project without replacing its purpose.</p>
+      <div class="world-wayfinder">
+        <a href="#living-library"><span>Discover</span><strong>The Living Library</strong><small>Observe, read, question and grow.</small></a>
+        <a href="#wrenwood-nook"><span>Write to us</span><strong>Wrenwood Nook</strong><small>Send questions, corrections or accessibility feedback privately.</small></a>
+      </div>
+      <p class="world-note">Created for Tree &amp; Ember by Aelira Wrenwood. This is the public story of the project, not a public directory of private family or business records.</p>
+    </section>
+    <footer class="realm-foot">May you find the knowledge you seek—and a little magic along the way.</footer>
+  </main>
+</section>
+
+<details class="world-guide" id="tree-world-guide" hidden>
+  <summary>Explore Tree &amp; Ember</summary>
+  <div class="world-guide__panel">
+    <h2 class="world-guide__heading">The Living Tree</h2>
+    <p class="world-guide__subtitle">Find your way between rooms, stories and paths. Each branch leads back to the same world.</p>
+    <nav aria-label="Tree and Ember world map">
+      <div class="world-guide__group"><p>The living world</p><div class="world-guide__links">
+        <a href="#portal-hub">Main Hub</a><a href="#living-library">Living Library</a>
+        <a href="#moon-room">Moon Room</a><a href="#mythical-beasts-legends">Legends &amp; Beasts</a>
+        <a href="#heartwood-lounge">Heartwood Lounge</a><a href="#journeys">Journeys</a>
+        <a href="#herbalist">Herbalist</a><a href="#portal-keys">Discovery Cards</a>
+        <a href="#guide-buddies">Guide Buddies</a><a href="#our-story">Our Story</a>
+      </div></div>
+      <div class="world-guide__group"><p>Places to visit</p><div class="world-guide__links">
+        <a href="oaken-emporium.html">Oaken Emporium</a><a href="#embers-photography">Ember’s Photography</a>
+        <a href="#homeschool">Owl’s Lessons</a><a href="#wrenwood-nook">Wrenwood Nook</a>
+      </div></div>
+    </nav>
+    <p class="world-guide__aside">Private learning, product checkout and character unlocks stay separate until ready.</p>
+  </div>
+</details>
+
 <iframe id="wrenwood-submit-frame" name="wrenwood-submit-frame"
         title="Wrenwood Nook secure submission response" aria-hidden="true"></iframe>
 <script>
@@ -4557,7 +4700,12 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
     'r-market':'#oaken-emporium',
     'r-homeschool':'#homeschool',
     'r-music':'#heartwood-lounge',
-    'r-photo':'#embers-photography'
+    'r-photo':'#embers-photography',
+    'r-journeys':'#journeys',
+    'r-herbalist':'#herbalist',
+    'r-cards':'#portal-keys',
+    'r-guides':'#guide-buddies',
+    'r-story':'#our-story'
   };
   const hashRoute=Object.fromEntries(Object.entries(routeHash).map(([id,hash])=>[hash,id]));
   // Legacy marketplace bookmarks must not reopen the old single-store prototype.
