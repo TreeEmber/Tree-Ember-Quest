@@ -7,27 +7,12 @@
     if(!menu)return;
     var summary=menu.querySelector('summary');
     var radios=Array.from(document.querySelectorAll('input.state[name="r"]'));
-    // Photography stays in its approved sixth Hub position. Give small-screen
-    // visitors a clearly named, real link above the artwork's bottom edge.
-    // Progressive enhancement only: the original photographic hotspot survives
-    // even if this script cannot run.
-    var hubFrame=document.querySelector('.hub .hub-frame');
-    if(hubFrame&&!hubFrame.querySelector('.hub-photo-beacon')){
-      var photographyLink=document.createElement('a');
-      photographyLink.className='hub-photo-beacon';
-      photographyLink.href='#embers-photography';
-      photographyLink.setAttribute('aria-label','Open Ember’s Photography');
-      photographyLink.innerHTML='<span aria-hidden="true">✦</span><span>Ember’s Photography</span>';
-      hubFrame.appendChild(photographyLink);
-    }
     function activeRoute(){
       var checked=radios.find(function(r){return r.checked});
       return checked?checked.id:'r-gate';
     }
     function sync(){
       var id=activeRoute();
-      // On phones, relocate the world map away from the photography doorway.
-      document.body.classList.toggle('hub-photo-wayfinding',id==='r-hub');
       var isIntro=id==='r-gate'||id==='r-walk';
       menu.hidden=isIntro;
       if(isIntro)menu.open=false;
