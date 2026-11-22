@@ -3453,6 +3453,7 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
 <link rel="stylesheet" href="assets/realm-interiors.css">
 <link rel="stylesheet" href="assets/world-expansion.css">
 <script defer src="assets/realm-interiors.js"></script>
+<script defer src="assets/living-legends.js"></script>
 <script defer src="assets/world-expansion.js"></script>
 </head>
 <body>
@@ -3556,15 +3557,88 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
         <p class="realm-quiet" id="living-archive-help">Searches the titles listed here, not yet the complete future Library database.</p>
         <ul class="realm-catalog" id="living-archive-results">
           <li data-realm-query="dew web spiders nature observation photography"><strong>Dew Web</strong><small>Featured field discovery · Full source-checked lesson in preparation</small></li>
-          <li data-realm-query="ancient waters sturgeon horseshoe crabs sharks living legends"><strong>Ancient Waters</strong><small>Living Legends · Ancient aquatic lineages</small></li>
-          <li data-realm-query="ancient earth tuatara tortoise salamander scorpion living legends"><strong>Ancient Earth</strong><small>Living Legends · Ancient land lineages</small></li>
-          <li data-realm-query="dinosaurs among us birds owls ravens cassowaries"><strong>Dinosaurs Among Us</strong><small>Living Legends · Modern birds and their ancestors</small></li>
+          <li data-realm-query="ancient waters sturgeon horseshoe crabs sharks sea turtles living legends"><strong><a href="#legend-waters">Ancient Waters</a></strong><small>Living Legends · 3 source-linked field notes</small></li>
+          <li data-realm-query="ancient earth tuatara salamanders crocodilians living legends"><strong><a href="#legend-earth">Ancient Earth</a></strong><small>Living Legends · 3 source-linked field notes</small></li>
+          <li data-realm-query="dinosaurs among us birds owls ravens cassowaries"><strong><a href="#legend-birds">Dinosaurs Among Us</a></strong><small>Living Legends · 3 source-linked field notes</small></li>
           <li data-realm-query="legends beasts folklore culture myth"><strong>Legends &amp; Beasts</strong><small>Folklore and extraordinary creatures · Open from the reading table</small></li>
           <li data-realm-query="field guides plants herbs botany foraging safety"><strong>Herbalist’s shelves</strong><small>Botanical research · Safety review before practical release</small></li>
         </ul><p class="realm-empty" id="living-archive-empty" role="status" hidden>No matching titles on these first shelves yet.</p>
       </section>
       <section class="realm-alcove" id="library-about" aria-labelledby="library-about-heading"><p class="realm-feature">A library for everyone</p><h2 id="library-about-heading">May you find the knowledge you seek</h2><p>Here, natural history, practical knowledge, art, cultures, mythology and the everyday outdoors belong together. The learning paths are for curious adults and children alike.</p><p>We clearly distinguish verified evidence from identification pending, folklore, belief and original stories. Core learning remains free.</p></section>
-      <section class="realm-alcove" id="library-living-legends" aria-labelledby="library-legends-heading"><p class="realm-feature">Living Legends</p><h2 id="library-legends-heading">Some legends were imagined. Some are still alive.</h2><p>Explore Ancient Waters, Ancient Earth and Dinosaurs Among Us. These are living representatives of ancient evolutionary lineages—not modern species frozen unchanged in time.</p><p class="realm-quiet">Individual species entries, original photographs and conservation references will open as they complete review.</p></section>
+      <section class="realm-alcove legend-reading-room" id="library-living-legends" aria-labelledby="library-legends-heading">
+  <p class="realm-feature">The Living Library · Real-world field atlas</p>
+  <h2 id="library-legends-heading">Some legends were imagined. Some are still alive.</h2>
+  <p>Follow Ancient Waters, Ancient Earth and Dinosaurs Among Us. These are living representatives of ancient evolutionary lineages—not modern species frozen unchanged in time.</p>
+  <p class="legend-invitation">Choose a collection, then open a field note for evidence, an observation question and a trusted source. These are short starting points, not species identification or handling instructions.</p>
+  <nav class="legend-filters" aria-label="Living Legends collections">
+    <button type="button" class="legend-filter" data-legend-filter="all" aria-pressed="true">All collections</button>
+    <button type="button" class="legend-filter" data-legend-filter="waters" aria-pressed="false">Ancient Waters</button>
+    <button type="button" class="legend-filter" data-legend-filter="earth" aria-pressed="false">Ancient Earth</button>
+    <button type="button" class="legend-filter" data-legend-filter="birds" aria-pressed="false">Dinosaurs Among Us</button>
+  </nav>
+  <p class="legend-count" id="legend-count" role="status" aria-live="polite">Showing 9 field notes in 3 collections.</p>
+  <section class="legend-collection" id="legend-waters" data-legend-collection="waters" aria-labelledby="legend-waters-heading">
+  <header class="legend-collection-heading"><p class="legend-index">01 · Field collection</p><h3 id="legend-waters-heading">Ancient Waters</h3><p>The river, shore and sea still carry very old branches of life.</p></header>
+  <div class="legend-grid">
+  <details class="legend-entry" id="legend-green-sturgeon"><summary><span class="legend-entry-index">01 · Ancient ray-finned fish lineage</span><span class="legend-entry-title">Green sturgeon</span><span class="legend-entry-hint">Open field notes</span></summary><div class="legend-entry-body">
+  <p><strong>What the evidence tells us:</strong> Green sturgeon travel between rivers and coastal waters. River passage and spawning habitat matter to their survival.</p>
+  <p><strong>Question to explore:</strong> What happens to a migratory fish when a river route is blocked?</p>
+  <p><strong>Care for the living world:</strong> Trace rivers without disturbing spawning grounds.</p>
+  <a class="legend-source" href="https://www.fisheries.noaa.gov/species/green-sturgeon" target="_blank" rel="noopener noreferrer">Read the source · NOAA Fisheries <span aria-hidden="true">↗</span></a></div></details>
+<details class="legend-entry" id="legend-horseshoe-crab"><summary><span class="legend-entry-index">02 · Chelicerate arthropod</span><span class="legend-entry-title">Horseshoe crab</span><span class="legend-entry-hint">Open field notes</span></summary><div class="legend-entry-body">
+  <p><strong>What the evidence tells us:</strong> Despite its name, this animal is not a true crab. Its closer living relatives include spiders and scorpions; its eggs also feed shorebirds.</p>
+  <p><strong>Question to explore:</strong> Which features would you compare to tell a horseshoe crab from a true crab?</p>
+  <p><strong>Care for the living world:</strong> Observe shoreline wildlife without lifting animals by their tails.</p>
+  <a class="legend-source" href="https://oceanservice.noaa.gov/facts/horseshoe-crab.html" target="_blank" rel="noopener noreferrer">Read the source · NOAA Ocean Service <span aria-hidden="true">↗</span></a></div></details>
+<details class="legend-entry" id="legend-sea-turtles"><summary><span class="legend-entry-index">03 · Long-lived reptile lineages</span><span class="legend-entry-title">Sea turtles</span><span class="legend-entry-hint">Open field notes</span></summary><div class="legend-entry-body">
+  <p><strong>What the evidence tells us:</strong> Marine turtles spend much of their lives at sea, while females return to beaches to nest. Protecting beaches and ocean habitats protects different parts of their lives.</p>
+  <p><strong>Question to explore:</strong> Why would protecting a nesting beach alone not protect an entire turtle life cycle?</p>
+  <p><strong>Care for the living world:</strong> Leave nesting beaches, hatchlings and tracks undisturbed.</p>
+  <a class="legend-source" href="https://www.fws.gov/marine-turtle-conservation-fund" target="_blank" rel="noopener noreferrer">Read the source · U.S. Fish &amp; Wildlife Service <span aria-hidden="true">↗</span></a></div></details>
+  </div>
+</section>
+<section class="legend-collection" id="legend-earth" data-legend-collection="earth" aria-labelledby="legend-earth-heading">
+  <header class="legend-collection-heading"><p class="legend-index">02 · Field collection</p><h3 id="legend-earth-heading">Ancient Earth</h3><p>Ancient histories leave clues in the living world underfoot.</p></header>
+  <div class="legend-grid">
+  <details class="legend-entry" id="legend-tuatara"><summary><span class="legend-entry-index">01 · Surviving branch of an ancient reptile group</span><span class="legend-entry-title">Tuatara</span><span class="legend-entry-hint">Open field notes</span></summary><div class="legend-entry-body">
+  <p><strong>What the evidence tells us:</strong> Tuatara live in Aotearoa New Zealand. They look a little like lizards but belong to a distinct reptile lineage.</p>
+  <p><strong>Question to explore:</strong> What can fossils reveal about relatives that no longer exist?</p>
+  <p><strong>Care for the living world:</strong> Respect protected habitats and conservation restrictions.</p>
+  <a class="legend-source" href="https://www.doc.govt.nz/nature/native-animals/reptiles-and-frogs/tuatara/" target="_blank" rel="noopener noreferrer">Read the source · New Zealand Department of Conservation <span aria-hidden="true">↗</span></a></div></details>
+<details class="legend-entry" id="legend-salamanders"><summary><span class="legend-entry-index">02 · Amphibian lineage</span><span class="legend-entry-title">Salamanders</span><span class="legend-entry-hint">Open field notes</span></summary><div class="legend-entry-body">
+  <p><strong>What the evidence tells us:</strong> Salamanders have sensitive, often moist skin. Many depend on cool forest cover and wetlands, so habitat changes can strongly affect them.</p>
+  <p><strong>Question to explore:</strong> How might fallen logs and shaded soil create a safe microhabitat?</p>
+  <p><strong>Care for the living world:</strong> Look without handling salamanders or moving their shelter.</p>
+  <a class="legend-source" href="https://www.nps.gov/kaww/learn/nature/salamanders.htm" target="_blank" rel="noopener noreferrer">Read the source · U.S. National Park Service <span aria-hidden="true">↗</span></a></div></details>
+<details class="legend-entry" id="legend-crocodilians"><summary><span class="legend-entry-index">03 · Archosaur relatives of birds</span><span class="legend-entry-title">Crocodilians</span><span class="legend-entry-hint">Open field notes</span></summary><div class="legend-entry-body">
+  <p><strong>What the evidence tells us:</strong> Crocodilians and living birds are surviving branches of the larger archosaur family tree. Crocodilians are relatives of dinosaurs, not living dinosaurs themselves.</p>
+  <p><strong>Question to explore:</strong> How can two very different living animals reveal a shared evolutionary ancestor?</p>
+  <p><strong>Care for the living world:</strong> Watch wild crocodilians only from a safe, respectful distance.</p>
+  <a class="legend-source" href="https://www.si.edu/object/nmnheducation_14538301" target="_blank" rel="noopener noreferrer">Read the source · Smithsonian Institution <span aria-hidden="true">↗</span></a></div></details>
+  </div>
+</section>
+<section class="legend-collection" id="legend-birds" data-legend-collection="birds" aria-labelledby="legend-birds-heading">
+  <header class="legend-collection-heading"><p class="legend-index">03 · Field collection</p><h3 id="legend-birds-heading">Dinosaurs Among Us</h3><p>Birds are living dinosaurs—not merely animals that resemble them.</p></header>
+  <div class="legend-grid">
+  <details class="legend-entry" id="legend-cassowary"><summary><span class="legend-entry-index">01 · Living bird · flightless forest specialist</span><span class="legend-entry-title">Southern cassowary</span><span class="legend-entry-hint">Open field notes</span></summary><div class="legend-entry-body">
+  <p><strong>What the evidence tells us:</strong> The southern cassowary has a prominent casque on its head and helps move seeds through tropical forest as it eats fruit.</p>
+  <p><strong>Question to explore:</strong> What might happen to a forest if one of its large fruit-eating birds disappears?</p>
+  <p><strong>Care for the living world:</strong> Keep your distance; never feed wildlife.</p>
+  <a class="legend-source" href="https://www.nationalzoo.si.edu/animals/southern-cassowary" target="_blank" rel="noopener noreferrer">Read the source · Smithsonian National Zoo <span aria-hidden="true">↗</span></a></div></details>
+<details class="legend-entry" id="legend-owls"><summary><span class="legend-entry-index">02 · Living birds · specialized nighttime hunters</span><span class="legend-entry-title">Owls</span><span class="legend-entry-hint">Open field notes</span></summary><div class="legend-entry-body">
+  <p><strong>What the evidence tells us:</strong> Many owls use special flight feathers that reduce wing noise, helping them approach prey with less sound.</p>
+  <p><strong>Question to explore:</strong> How could studying a feather&#39;s edge help explain quieter flight?</p>
+  <p><strong>Care for the living world:</strong> Listen from a distance and avoid nesting sites.</p>
+  <a class="legend-source" href="https://www.nps.gov/articles/earth-s-original-aviators.htm" target="_blank" rel="noopener noreferrer">Read the source · U.S. National Park Service <span aria-hidden="true">↗</span></a></div></details>
+<details class="legend-entry" id="legend-ravens"><summary><span class="legend-entry-index">03 · Living bird · corvid</span><span class="legend-entry-title">Common raven</span><span class="legend-entry-hint">Open field notes</span></summary><div class="legend-entry-body">
+  <p><strong>What the evidence tells us:</strong> Common ravens occur in varied habitats and often cache food for later. Their complex behavior is one reason they fascinate naturalists and storytellers.</p>
+  <p><strong>Question to explore:</strong> What careful observations would distinguish food storing from simply carrying food?</p>
+  <p><strong>Care for the living world:</strong> Watch natural behavior without offering food.</p>
+  <a class="legend-source" href="https://home.nps.gov/articles/000/common-raven.htm" target="_blank" rel="noopener noreferrer">Read the source · U.S. National Park Service <span aria-hidden="true">↗</span></a></div></details>
+  </div>
+</section>
+  <p class="legend-footer">Evidence and folklore can inspire each other without being the same thing. No photographs, animal identifications, collection unlocks or rarity claims have been published in this atlas.</p>
+</section>
       <section class="realm-alcove" id="library-dew-web" aria-labelledby="library-dew-heading"><p class="realm-feature">First field discovery · In preparation</p><h2 id="library-dew-heading">Dew Web</h2><p>Look for morning dew outlining a spider web. Observe without touching the web or disturbing its builder. Notice how the droplets reveal different threads.</p><p>The complete photo-led lesson and species verification remain in development; this is an observation invitation, not a species identification.</p></section>
     </div>
     <footer class="realm-foot">The greatest discoveries rarely begin with certainty. They begin with curiosity.</footer>
