@@ -3454,6 +3454,7 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
 <link rel="stylesheet" href="assets/world-expansion.css">
 <script defer src="assets/realm-interiors.js"></script>
 <script defer src="assets/living-legends.js"></script>
+<script defer src="assets/story-forge.js"></script>
 <script defer src="assets/world-expansion.js"></script>
 </head>
 <body>
@@ -4231,6 +4232,40 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
       </div>
       <div class="realm-link-row"><label class="realm-route-link" for="r-library" role="button" tabindex="0">Return to the reading table</label></div>
     </section>
+    <section class="realm-table story-forge" id="beasts-story-forge" aria-labelledby="story-forge-heading">
+  <p class="realm-feature">Legends &amp; Beasts · Interactive Story Forge</p>
+  <h2 id="story-forge-heading">A creature. A place. A story waiting to happen.</h2>
+  <p>Choose a legendary being and a setting to reveal an original Tree &amp; Ember writing spark. These are invitations to create, not official lore, species claims or collectible unlocks.</p>
+  <div class="story-controls">
+    <fieldset class="story-select"><legend>Choose a legendary creature</legend>
+    <div class="story-buttons"><button type="button" class="story-choice" data-story-creature="dragon" aria-pressed="true">Dragon</button>
+<button type="button" class="story-choice" data-story-creature="phoenix" aria-pressed="false">Phoenix</button>
+<button type="button" class="story-choice" data-story-creature="pegasus" aria-pressed="false">Pegasus</button>
+<button type="button" class="story-choice" data-story-creature="unicorn" aria-pressed="false">Unicorn</button>
+<button type="button" class="story-choice" data-story-creature="griffin" aria-pressed="false">Griffin</button></div></fieldset>
+    <fieldset class="story-select"><legend>Choose where the mystery begins</legend><div class="story-buttons">
+      <button class="story-choice" type="button" data-story-place="forest" aria-pressed="true">Lantern Forest</button>
+      <button class="story-choice" type="button" data-story-place="shore" aria-pressed="false">Moonlit Shore</button>
+      <button class="story-choice" type="button" data-story-place="stars" aria-pressed="false">Starlit Ridge</button>
+    </div></fieldset>
+  </div>
+  <div class="story-result" aria-labelledby="story-spark-title">
+    <span class="story-result-kicker">Your story spark · Original fiction</span>
+    <h3 id="story-spark-title">Dragon · Lantern Forest</h3>
+    <p id="story-spark-text" role="status" aria-live="polite">A dragon keeps watch over a promise older than the path. Beneath the Lantern Forest, an old tree begins to glow from within. What does its light reveal, and who is watching?</p>
+    <button class="story-copy" id="story-copy" type="button">Copy this story spark</button>
+    <p id="story-copy-status" class="realm-quiet" role="status" aria-live="polite">No login or writing is collected or saved here.</p>
+  </div>
+  <details class="story-sources"><summary>Explore the real art and folklore behind these creatures</summary>
+    <p>Fiction and historical traditions are different. Each description below identifies a particular museum reference, not a single universal story.</p>
+    <ul><li><strong>Dragon</strong> — Across traditions dragons can symbolize very different things. In Chinese art, some dragons are associated with natural forces and water. <a href="https://www.metmuseum.org/art/collection/search/42161" target="_blank" rel="noopener noreferrer">Museum reference: The Metropolitan Museum of Art <span aria-hidden="true">↗</span></a></li>
+<li><strong>Phoenix</strong> — Stories of a phoenix-like bird appear in several traditions, often connected with cycles of renewal. Details differ across accounts. <a href="https://www.getty.edu/news/a-birdwatchers-eye-view/" target="_blank" rel="noopener noreferrer">Museum reference: Getty Museum <span aria-hidden="true">↗</span></a></li>
+<li><strong>Pegasus</strong> — Pegasos is the winged horse of Greek myth. Ancient art also connects him with the hero Bellerophon and the Chimera. <a href="https://www.metmuseum.org/art/collection/search/646263" target="_blank" rel="noopener noreferrer">Museum reference: The Metropolitan Museum of Art <span aria-hidden="true">↗</span></a></li>
+<li><strong>Unicorn</strong> — European medieval tapestries portray the unicorn in elaborate narratives that mix wonder, symbolism and competing interpretations. <a href="https://www.metmuseum.org/art/collection/search/467637" target="_blank" rel="noopener noreferrer">Museum reference: The Metropolitan Museum of Art <span aria-hidden="true">↗</span></a></li>
+<li><strong>Griffin</strong> — The griffin is a legendary hybrid of eagle and lion seen in historical art, including Byzantine and ancient Near Eastern traditions. <a href="https://www.metmuseum.org/art/collection/search/472849" target="_blank" rel="noopener noreferrer">Museum reference: The Metropolitan Museum of Art <span aria-hidden="true">↗</span></a></li></ul>
+  </details>
+  <p class="story-foot">Wonder belongs to everyone. The writing spark is free, works without an account, and does not write to your device or a server. Guide Buddy stories, card unlocking and animated characters remain separate features in development.</p>
+</section>
     <footer class="realm-foot">Some legends were imagined. Some are still alive.</footer>
   </main>
 </section>
