@@ -3561,8 +3561,8 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
           <li data-realm-query="ancient waters sturgeon horseshoe crabs sharks sea turtles living legends"><strong><a href="#legend-waters">Ancient Waters</a></strong><small>Living Legends · 3 source-linked field notes</small></li>
           <li data-realm-query="ancient earth tuatara salamanders crocodilians living legends"><strong><a href="#legend-earth">Ancient Earth</a></strong><small>Living Legends · 3 source-linked field notes</small></li>
           <li data-realm-query="dinosaurs among us birds owls ravens cassowaries"><strong><a href="#legend-birds">Dinosaurs Among Us</a></strong><small>Living Legends · 3 source-linked field notes</small></li>
-          <li data-realm-query="legends beasts folklore culture myth"><strong>Legends &amp; Beasts</strong><small>Folklore and extraordinary creatures · Open from the reading table</small></li>
-          <li data-realm-query="field guides plants herbs botany foraging safety"><strong>Herbalist’s shelves</strong><small>Botanical research · Safety review before practical release</small></li>
+          <li data-realm-query="legends beasts folklore culture myth"><strong><a href="#mythical-beasts-legends">Legends &amp; Beasts</a></strong><small>Folklore and extraordinary creatures · Enter the realm</small></li>
+          <li data-realm-query="field guides plants herbs botany foraging safety"><strong><a href="#herbalist">Herbalist’s shelves</a></strong><small>Botanical research · Safety review before practical release</small></li>
         </ul><p class="realm-empty" id="living-archive-empty" role="status" hidden>No matching titles on these first shelves yet.</p>
       </section>
       <section class="realm-alcove" id="library-about" aria-labelledby="library-about-heading"><p class="realm-feature">A library for everyone</p><h2 id="library-about-heading">May you find the knowledge you seek</h2><p>Here, natural history, practical knowledge, art, cultures, mythology and the everyday outdoors belong together. The learning paths are for curious adults and children alike.</p><p>We clearly distinguish verified evidence from identification pending, folklore, belief and original stories. Core learning remains free.</p></section>
@@ -3571,6 +3571,11 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
   <h2 id="library-legends-heading">Some legends were imagined. Some are still alive.</h2>
   <p>Follow Ancient Waters, Ancient Earth and Dinosaurs Among Us. These are living representatives of ancient evolutionary lineages—not modern species frozen unchanged in time.</p>
   <p class="legend-invitation">Choose a collection, then open a field note for evidence, an observation question and a trusted source. These are short starting points, not species identification or handling instructions.</p>
+  <div class="legend-search-tools">
+    <label for="legend-search">Search the field atlas</label>
+    <input id="legend-search" type="search" name="legend-search" placeholder="Try raven, river, fossils…" autocomplete="off" spellcheck="false" aria-describedby="legend-search-help legend-count">
+    <p id="legend-search-help">Search these nine field notes by creature, lineage or discovery. Searches stay in your browser; nothing is sent or stored.</p>
+  </div>
   <nav class="legend-filters" aria-label="Living Legends collections">
     <button type="button" class="legend-filter" data-legend-filter="all" aria-pressed="true">All collections</button>
     <button type="button" class="legend-filter" data-legend-filter="waters" aria-pressed="false">Ancient Waters</button>
@@ -3578,6 +3583,7 @@ label[for]{cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:no
     <button type="button" class="legend-filter" data-legend-filter="birds" aria-pressed="false">Dinosaurs Among Us</button>
   </nav>
   <p class="legend-count" id="legend-count" role="status" aria-live="polite">Showing 9 field notes in 3 collections.</p>
+  <p class="legend-empty" id="legend-empty" hidden>No field notes match that search in this collection. Try another word or choose All collections.</p>
   <section class="legend-collection" id="legend-waters" data-legend-collection="waters" aria-labelledby="legend-waters-heading">
   <header class="legend-collection-heading"><p class="legend-index">01 · Field collection</p><h3 id="legend-waters-heading">Ancient Waters</h3><p>The river, shore and sea still carry very old branches of life.</p></header>
   <div class="legend-grid">

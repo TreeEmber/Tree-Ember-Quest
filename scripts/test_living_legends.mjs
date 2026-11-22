@@ -39,11 +39,35 @@ try{
     if(await link.getAttribute('rel')!=='noopener noreferrer')throw Error('External source privacy attributes missing');
     await choose('all');
     if(await atlas.locator('.legend-collection:visible').count()!==3)throw Error('All collections not restored');
-    const search=page.locator('#living-archive-search');
-    await search.fill('dinosaurs');
+    const atlasSearch=atlas.locator('#legend-search');
+    if(!await atlasSearch.isVisible())throw Error('No atlas search control');
+    await atlasSearch.fill('cassowary');
+    if(await atlas.locator('.legend-entry:visible').count()!==1 || !await atlas.locator('#legend-cassowary').isVisible())
+      throw Error('Species search did not reveal just cassowary');
+    if(!/1 field note in 1 collection/.test(await atlas.locator('#legend-count').innerText()))
+      throw Error('Species search count is wrong');
+    await atlasSearch.fill('tUaTaRa');
+    if(await atlas.locator('.legend-entry:visible').count()!==1 || !await atlas.locator('#legend-tuatara').isVisible())
+      throw Error('Case-insensitive atlas search failed');
+    await atlasSearch.fill('no-such-field-note-999');
+    if(await atlas.locator('.legend-entry:visible').count()!==0 || !await atlas.locator('#legend-empty').isVisible())
+      throw Error('No-results state is missing');
+    if(!/0 field notes in 0 collections/.test(await atlas.locator('#legend-count').innerText()))
+      throw Error('No-results count incorrect');
+    await atlasSearch.fill('raven');
+    if(await atlas.locator('.legend-entry:visible').count()!==1)throw Error('Failed to restore search results');
+    await choose('waters');
+    if(await atlas.locator('.legend-entry:visible').count()!==0)throw Error('Search ignored selected collection');
+    await choose('all');
+    if(await atlas.locator('.legend-entry:visible').count()!==1)throw Error('All collection did not restore matching raven');
+    const archiveSearch=page.locator('#living-archive-search');
+    await archiveSearch.fill('dinosaurs');
     if(await page.locator('#living-archive-results li:visible').count()!==1)throw Error('Existing Library search broke');
-    await search.fill('');
+    await archiveSearch.fill('');
+    // Archive links must clear stale atlas search and reveal the chosen collection.
     await page.locator('#living-archive-results a[href="#legend-earth"]').click();
+    if(await atlasSearch.inputValue()!=='')throw Error('Archive jump left stale atlas search');
+    if(await atlas.locator('.legend-entry:visible').count()!==3)throw Error('Archive jump did not reveal all three Earth notes');
     if(!page.url().endsWith('#living-library'))throw Error('Atlas link took over approved Hub route');
     if(await page.evaluate(()=>document.activeElement?.id)!=='legend-earth')throw Error('Atlas link did not move keyboard focus');
     if(await atlas.locator('.legend-collection:visible').count()!==1)throw Error('Atlas deep link filter failed');
@@ -52,6 +76,15 @@ try{
     if(await atlas.locator('.legend-collection:visible').count()!==3)throw Error('Keyboard filter failed');
     const dim=await atlas.evaluate(el=>({scroll:el.scrollWidth,client:el.clientWidth}));
     if(dim.scroll>dim.client+2)throw Error('Atlas horizontally overflows at '+width+' '+JSON.stringify(dim));
+    // The two existing Archive destinations must be real links, not dead text.
+    await page.locator('#living-archive-results a[href="#mythical-beasts-legends"]').click();
+    await page.waitForFunction(()=>document.getElementById('r-beasts')?.checked);
+    await page.goto(base+'#living-library',{waitUntil:'domcontentloaded'});
+    await page.waitForFunction(()=>document.getElementById('r-library')?.checked);
+    await page.locator('#living-archive-results a[href="#herbalist"]').click();
+    await page.waitForFunction(()=>document.getElementById('r-herbalist')?.checked);
+    await page.goto(base+'#living-library',{waitUntil:'domcontentloaded'});
+    await page.waitForFunction(()=>document.getElementById('r-library')?.checked);
     if(errors.length)throw Error('JS runtime errors: '+errors.join('; '));
     if(width===390||width===1440)await page.screenshot({path:'qa-legend-atlas-'+width+'.png'});
     console.log('PASS Living Legends '+width+'×'+height+' nine entries, filters, native disclosures, archive jumps, keyboard and source links');
