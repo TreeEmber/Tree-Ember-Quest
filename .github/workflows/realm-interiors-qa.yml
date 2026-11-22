@@ -8,6 +8,8 @@ on:
       - assets/realm-interiors.js
       - scripts/test_realm_interiors.mjs
       - scripts/test_living_legends.mjs
+      - scripts/test_story_forge.mjs
+      - assets/story-forge.js
       - assets/living-legends.js
       - .github/workflows/realm-interiors-qa.yml
   pull_request:
@@ -50,6 +52,8 @@ jobs:
           node scripts/test_realm_interiors.mjs
       - name: Run Living Legends atlas acceptance
         run: node scripts/test_living_legends.mjs
+      - name: Run Legends & Beasts Story Forge browser acceptance
+        run: node scripts/test_story_forge.mjs
       - name: Store four-screen-size screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -58,4 +62,5 @@ jobs:
           path: |
             qa-realm-*.png
             qa-legend-*.png
+            qa-story-forge-*.png
           if-no-files-found: ignore
