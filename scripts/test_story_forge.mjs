@@ -38,8 +38,9 @@ for(const [width,height] of [[320,700],[390,844],[768,1024],[1440,1000]]){
   await page.keyboard.press('Enter');
   if(!/Pegasus/.test(await forge.locator('#story-spark-title').innerText()))throw Error('Keyboard choice failed');
   await forge.locator('#story-copy').click();
-  const state=await forge.locator('#story-copy-status').innerText();
-  if(!/copied|unavailable/i.test(state))throw Error('Clipboard status not communicated');
+  // navigator.clipboard.writeText resolves asynchronously after the click.
+  await page.waitForFunction(()=>/copied|unavailable/i.test(
+    document.getElementById('story-copy-status')?.textContent||''),null,{timeout:7000});
   if(await page.locator('.hub .hub-hit').count()!==6)throw Error('Locked Hub hotspots missing');
   if(await page.locator('#teHubVideo source').getAttribute('src')!=='assets/portal-hub-gemini-softloop.mp4')
     throw Error('Locked Hub animation modified');
