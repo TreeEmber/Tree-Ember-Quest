@@ -7,6 +7,8 @@ on:
       - assets/realm-interiors.css
       - assets/realm-interiors.js
       - scripts/test_realm_interiors.mjs
+      - scripts/test_living_legends.mjs
+      - assets/living-legends.js
       - .github/workflows/realm-interiors-qa.yml
   pull_request:
     branches: [main]
@@ -46,10 +48,14 @@ jobs:
           python3 -m http.server 8177 --bind 127.0.0.1 >/tmp/realm-http.log 2>&1 &
           sleep 2
           node scripts/test_realm_interiors.mjs
+      - name: Run Living Legends atlas acceptance
+        run: node scripts/test_living_legends.mjs
       - name: Store four-screen-size screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: tree-ember-realm-screenshots
-          path: qa-realm-*.png
+          path: |
+            qa-realm-*.png
+            qa-legend-*.png
           if-no-files-found: ignore
