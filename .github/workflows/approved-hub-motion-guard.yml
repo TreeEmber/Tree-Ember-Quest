@@ -1,0 +1,21 @@
+name: Preserve Tree & Ember Approved Animated Hub
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  approved-hub-motion:
+    name: Keep approved animated Hub and poster intact
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify approved animation, still poster, Gate, Journey, and portal alignment
+        run: node scripts/verify_approved_hub_motion.mjs
