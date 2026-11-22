@@ -76,6 +76,15 @@ try{
     if(await atlas.locator('.legend-collection:visible').count()!==3)throw Error('Keyboard filter failed');
     const dim=await atlas.evaluate(el=>({scroll:el.scrollWidth,client:el.clientWidth}));
     if(dim.scroll>dim.client+2)throw Error('Atlas horizontally overflows at '+width+' '+JSON.stringify(dim));
+    // The two existing Archive destinations must be real links, not dead text.
+    await page.locator('#living-archive-results a[href="#mythical-beasts-legends"]').click();
+    await page.waitForFunction(()=>document.getElementById('r-beasts')?.checked);
+    await page.goto(base+'#living-library',{waitUntil:'domcontentloaded'});
+    await page.waitForFunction(()=>document.getElementById('r-library')?.checked);
+    await page.locator('#living-archive-results a[href="#herbalist"]').click();
+    await page.waitForFunction(()=>document.getElementById('r-herbalist')?.checked);
+    await page.goto(base+'#living-library',{waitUntil:'domcontentloaded'});
+    await page.waitForFunction(()=>document.getElementById('r-library')?.checked);
     if(errors.length)throw Error('JS runtime errors: '+errors.join('; '));
     if(width===390||width===1440)await page.screenshot({path:'qa-legend-atlas-'+width+'.png'});
     console.log('PASS Living Legends '+width+'×'+height+' nine entries, filters, native disclosures, archive jumps, keyboard and source links');
